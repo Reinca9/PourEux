@@ -691,3 +691,65 @@ padding-right: 2%;
     margin-left: 0%;
     border-radius: 15%;
 }
+#premierArticleActualités{
+    width: 95%;
+    display: flex;
+    margin-top: 10%;
+    justify-content: space-around;
+    margin: 10% 2% 0% 2%;
+    padding: 2%;
+
+}
+#premiereImgActu{
+    width: 500px;
+    height: 350px;
+    border-radius: 5%;
+}
+#facebookApiFeedDiv{
+    background-color: rgb(251, 188, 88);
+    width: 500px;
+    height: 350px;
+    border-radius: 5%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    padding: 2% 2% 0% 2%;
+}
+.enSavoirPlusActu{
+    border: none;
+    background-color: rgb(232, 65, 69);
+    border-radius: 6px;
+    height: 40px;
+    width: 120px;
+    color: white;
+}
+.enSavoirPlusActu a{
+    color: white;
+}
+#articleDeuxActuDiv{
+    background-color: rgb(251, 188, 88);
+    width: 500px;
+    height: 350px;
+    border-radius: 5%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    padding: 2% 2% 0% 2%;
+}
+#deuxiemeImgActu{
+    width: 500px;
+        height: 350px;
+        border-radius: 5%;
+}
+#deuxiemeArticleActualités{
+    display: flex;
+    justify-content: space-around;
+    margin: 0% 2% 0% 2%;
+    padding: 2%;
+}
+#backgroundColorActuDiv{
+    background-color: rgb(13, 129, 153);
+    
+}

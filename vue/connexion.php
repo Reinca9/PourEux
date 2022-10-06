@@ -1,7 +1,7 @@
 <?php
 include('header2.php')
 ?>
-<div>push content</div>
+<div>empty content</div>
 <div id="connexionContainer">
     <div id="formConnexionContainer">
         <h1 id="seConnecterh1">Se connecter</h1>

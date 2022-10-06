@@ -7,7 +7,7 @@ if(isset($_POST['nom'])){
 
 ?>
 
-<div>push header</div>
+<div>empty content</div>
 <div id="pageInscription">
     <div id="backgroundInscription">
         <div class="inscriptionContainer">
