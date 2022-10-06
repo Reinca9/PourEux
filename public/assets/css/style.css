@@ -416,7 +416,13 @@ footer{
 }
 .inscriptionContainer{
     display: flex;
-    margin-left: 33%;
+    margin-left: 20%;
+    margin-top: 0%;
+}
+#loginLogoSvgInscription {
+    width: 80%;
+    height: 80%;
+    margin-top: 5%;
 }
 #backgroundInscription{
 width: 80%;
@@ -491,11 +497,23 @@ width: 80%;
     height: 65vh;
     margin-left: 10%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     margin-top: 10%;
+    justify-content: left;
+    align-items: left;
+    flex-wrap: nowrap;
+    padding-top: 5%;
+    padding-left: 20%;
 }
+#formConnexionContainer{
+    display: flex;
+    flex-direction: column;
+  
+}
+#loginLogoSvg {
+    width: 80%;
+    height: 80%;
+}
+
 #loginButton{
     border: none;
     border-radius: 5px;
