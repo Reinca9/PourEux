@@ -46,6 +46,9 @@ $bdd = new Database('poureuxbdd', 'root', '', 'localhost');
         case 'leCollectif':
             include('../vue/leCollectif.php');
             break;
+        case 'actualités':
+            include('../vue/actualites.php');
+            break;
         default:
             include('../vue/accueil.php');
         }

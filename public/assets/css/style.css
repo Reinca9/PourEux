@@ -420,8 +420,8 @@ footer{
     margin-top: 0%;
 }
 #loginLogoSvgInscription {
-    width: 80%;
-    height: 80%;
+    width: 400px;
+    height: 400px;
     margin-top: 5%;
 }
 #backgroundInscription{
@@ -488,7 +488,7 @@ width: 80%;
 }
 #seConnecterh1{
     color: white;
-    margin-bottom: 5%;
+    margin-bottom: 10%;
 }
 #connexionContainer{
     background-color: rgb(13, 129, 153);
@@ -507,11 +507,10 @@ width: 80%;
 #formConnexionContainer{
     display: flex;
     flex-direction: column;
-  
 }
 #loginLogoSvg {
-    width: 80%;
-    height: 80%;
+    width: 400px;
+    height: 400px;
 }
 
 #loginButton{

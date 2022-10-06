@@ -12,7 +12,7 @@ if(isset($_POST['nom'])){
     <div id="backgroundInscription">
         <div class="inscriptionContainer">
             <form id="formSignIn" action="" method="POST" class="signForm">
-                <h1 id="inscrivezVous" class="formTitle">Inscrivez-vous</h1>
+                <h1 id="inscrivezVous" class="formTitle">Nous rejoindre</h1>
                 <div class="roleGroup">
                     <label for="roleSelect" id="roleLabel">Souhaitez vous livrer ou cuisiner</label>
                     <select name="roleSelect" id="roleSelect">
@@ -101,7 +101,9 @@ if(isset($_POST['nom'])){
                 </button>
 
         </div>
+        <img id="loginLogoSvgInscription" src=" assets/img/login-logo.svg" alt="">
         </form>
+
     </div>
 </div>
 
