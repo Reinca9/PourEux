@@ -692,23 +692,23 @@ padding-right: 2%;
     border-radius: 15%;
 }
 #premierArticleActualités{
-    width: 95%;
+    width: 90%;
     display: flex;
     margin-top: 10%;
     justify-content: space-around;
-    margin: 10% 2% 0% 2%;
+    margin: 10% 10% 5% 10%;
     padding: 2%;
 
 }
 #premiereImgActu{
-    width: 500px;
-    height: 350px;
+    width:400px;
+    height: 300px;
     border-radius: 5%;
 }
 #facebookApiFeedDiv{
     background-color: rgb(251, 188, 88);
-    width: 500px;
-    height: 350px;
+    width: 400px;
+    height: 300px;
     border-radius: 5%;
     color: white;
     display: flex;
@@ -729,8 +729,8 @@ padding-right: 2%;
 }
 #articleDeuxActuDiv{
     background-color: rgb(251, 188, 88);
-    width: 500px;
-    height: 350px;
+    width: 400px;
+    height: 300px;
     border-radius: 5%;
     color: white;
     display: flex;
@@ -739,17 +739,322 @@ padding-right: 2%;
     padding: 2% 2% 0% 2%;
 }
 #deuxiemeImgActu{
-    width: 500px;
-        height: 350px;
+    width: 400px;
+        height: 300px;
         border-radius: 5%;
 }
 #deuxiemeArticleActualités{
     display: flex;
     justify-content: space-around;
-    margin: 0% 2% 0% 2%;
     padding: 2%;
 }
 #backgroundColorActuDiv{
     background-color: rgb(13, 129, 153);
+    width: 90%;
+    border-radius: 20px;
+    padding-top: 1%;
+    margin-left: 10%;
+}
+.sr-only {
+    position: absolute;
+    top: -2000em;
+    left: -3000em;
+}
+
+.datepicker {
+    margin-top: 1em;
+    position: relative;
+}
+
+.datepicker .group {
+    display: flex;
+    width: 13em;
+}
+
+.datepicker label {
+    display: block;
+}
+
+.datepicker input {
+    padding: 0;
+    margin: 0;
+    height: 1.5em;
+    background-color: white;
+    color: black;
+    border: 1px solid gray;
+}
+
+.datepicker button.icon {
+    position: relative;
+    top: 0.25em;
+    margin: 0;
+    padding: 4px;
+    border: 0 solid white;
+    border-radius: 5px;
     
+}
+
+.datepicker .desc {
+    position: absolute;
+    left: 0;
+    top: 2em;
+}
+
+.datepicker .fa-calendar-alt {
+    color: rgb(13, 129, 153);
+}
+
+.datepicker button.icon:focus {
+    outline: none;
+    padding: 2px;
+
+}
+.datepicker input:focus {
+    background-color: white;
+    outline: 2px solid rgb(13, 129, 153);
+    outline-offset: 1px;
+}
+
+.datepicker-dialog {
+    position: absolute;
+    width: 320px;
+    clear: both;
+    border: 3px solid white;
+    margin-top: 0.15em;
+    border-radius: 5px;
+    padding: 0;
+    background-color: white;
+}
+
+.datepicker-dialog .header {
+    cursor: default;
+    background-color: rgb(13, 129, 153);
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 102%;
+}
+
+.datepicker-dialog h2 {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    font-size: 1em;
+    color: white;
+    text-transform: none;
+    font-weight: bold;
+}
+
+.datepicker-dialog button {
+    border-style: none;
+    background: transparent;
+}
+
+.datepicker-dialog button::-moz-focus-inner {
+    border: 0;
+}
+
+.datepicker-dialog .dates {
+    width: 320px;
+}
+
+.datepicker-dialog .prev-year,
+.datepicker-dialog .prev-month,
+.datepicker-dialog .next-month,
+.datepicker-dialog .next-year {
+    padding: 4px;
+    width: 24px;
+    height: 24px;
+    color: white;
+}
+
+.datepicker-dialog .prev-year:focus,
+.datepicker-dialog .prev-month:focus,
+.datepicker-dialog .next-month:focus,
+.datepicker-dialog .next-year:focus {
+    padding: 2px;
+    outline: 0;
+}
+
+.datepicker-dialog .prev-year:hover,
+.datepicker-dialog .prev-month:hover,
+.datepicker-dialog .next-month:hover,
+.datepicker-dialog .next-year:hover {
+
+color: rgb(251, 188, 88);
+}
+
+.datepicker-dialog .dialog-ok-cancel-group {
+    text-align: right;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-right: 1em;
+}
+
+.datepicker-dialog .dialog-ok-cancel-group button {
+    padding: 6px;
+    margin-left: 1em;
+    width: 5em;
+    background-color: rgb(251, 188, 88);
+    font-size: 0.85em;
+    color: black;
+    outline: none;
+    border-radius: 5px;
+}
+
+.datepicker-dialog .dialog-button:focus {
+    padding: 4px;
+    border: 2px solid black;
+}
+
+.datepicker-dialog .dialog-button:hover {
+    padding: 5px;
+    border: 1px solid black;
+}
+
+.datepicker-dialog .fa-calendar-alt {
+    color: rgb(13, 129, 153);
+}
+
+.datepicker-dialog .month-year {
+    display: inline-block;
+    width: 12em;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.datepicker-dialog table.dates {
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 1em;
+}
+
+.datepicker-dialog table.dates th,
+.datepicker-dialog table.dates td {
+    text-align: center;
+    color: black;
+}
+
+.datepicker-dialog table.dates tr {
+    border: 1px solid black;
+}
+
+.datepicker-dialog table.dates td {
+    padding: 3px;
+    margin: 0;
+    line-height: inherit;
+    height: 40px;
+    width: 40px;
+    border-radius: 5px;
+    font-size: 15px;
+    background: white;
+}
+
+.datepicker-dialog table.dates td.disabled {
+    padding: 2px;
+    border: none;
+    height: 41px;
+    width: 41px;
+}
+
+.datepicker-dialog table.dates td:focus,
+.datepicker-dialog table.dates td:hover {
+    padding: 0;
+    background-color: rgb(251, 188, 88);
+}
+
+.datepicker-dialog table.dates td:focus {
+    padding: 1px;
+    border: 2px solid black;
+    outline: 0;
+}
+
+.datepicker-dialog table.dates td:not(.disabled):hover {
+    padding: 2px;
+    border: 1px solid rgb(251, 188, 88);
+}
+
+.datepicker-dialog table.dates td[aria-selected] {
+    padding: 1px;
+    border: 2px dotted rgb(100 100 100);
+}
+
+.datepicker-dialog table.dates td[aria-selected]:focus {
+    padding: 1px;
+    border: 2px solid rgb(100 100 100);
+}
+
+.datepicker-dialog table.dates td[tabindex="0"] {
+    background-color: rgb(13, 129, 153);
+    color: black;
+}
+
+
+#deposerPanierDiv{
+    margin-top: 10%;
+    width: 90%;
+    margin-left: 10%;
+}
+#myDatepicker{
+    display: flex;
+
+}
+#iconDate{
+    margin-top: -8%;
+    margin-right: 5%;
+}
+#envoyerPanierForm{
+    display:flex;
+    flex-direction: column;
+}
+#deposerPanierTitle{
+    color: white;
+    font-family: 'Kollektif Regular';
+}
+#deposerPanierDiv{
+    background-color: rgb(13, 129, 153);
+    border-radius: 20px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left:25%;
+    height: 500px;
+}
+#deposerPanierDiv h1{
+    margin-bottom: 3%;
+}
+#heurePickerForm{
+    display: flex;
+}
+#datePickerForm{
+    display: flex;
+    margin-bottom: 5%;
+}
+.labelHourPicker{
+    color: rgb(251, 188, 88);
+    font-weight: bold;
+    width: 30%;
+    margin-right: 20%;
+}
+#heurePickerForm2 {
+    display: flex;
+}
+#messageDeclarerPanier{
+    width: 250px;
+    height: 100px;
+}
+#buttonDeclarerPanier{
+    color : white;
+    background-color: rgb(251, 188, 88);
+    border-radius: 20px;
+    width: 100%;
+    height: 40px;
+    border: none;
+    margin-top: 5%;
 }

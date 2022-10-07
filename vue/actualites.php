@@ -13,16 +13,18 @@ require('header2.php');
 
 <body>
 
+    <div>empty content</div>
+    <article id="premierArticleActualités">
+        <div id="facebookApiFeedDiv">
+            <h1>Insert facebook Feed api</h1>
+            <button class="enSavoirPlusActu"><a href=" index.php?page=signIn">En savoir plus</a></button>
+        </div>
+        <div id="imgLinkedTopApiFeedDiv">
+            <img id="premiereImgActu" src=" ../public\assets\img\received_527396665639558.jpeg" alt="">
+        </div>
+
+    </article>
     <div id="backgroundColorActuDiv">
-        <article id=" premierArticleActualités">
-            <div id="facebookApiFeedDiv">
-                <h1>Insert facebook Feed api</h1>
-                <button class="enSavoirPlusActu"><a href=" index.php?page=signIn">En savoir plus</a></button>
-            </div>
-            <div id="imgLinkedTopApiFeedDiv">
-                <img id="premiereImgActu" src=" ../public\assets\img\received_527396665639558.jpeg" alt="">
-            </div>
-        </article>
         <article id="deuxiemeArticleActualités">
             <div id=" articleDeuxActuImgDiv">
                 <img id="deuxiemeImgActu" src="../public/assets/img/chienPourEux.png" alt="">
@@ -36,6 +38,7 @@ require('header2.php');
             </div>
         </article>
     </div>
+
 </body>
 
 </html>

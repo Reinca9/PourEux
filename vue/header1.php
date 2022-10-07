@@ -8,7 +8,7 @@
               <a href="index.php?page=leCollectif">Le collectif</a>
               <a href="index.php?page=signin">Nous rejoindre</a>
               <a href="index.php?page=actualités">Actualités</a>
-              <a href="">Paniers Repas</a>
+              <a href="index.php?page=deposerPanier">Paniers Repas</a>
               <a href="">Livraisons</a>
               <a href="">Contact</a>
           </div>
