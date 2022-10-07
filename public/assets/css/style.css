@@ -403,6 +403,11 @@ footer{
         margin-left: 55%;
         margin-top: -5%;
 }
+#iconDate{
+background: white;
+width: 100px;
+
+}
 #footericon{
     display: flex;
         flex-direction: column;
@@ -761,27 +766,28 @@ padding-right: 2%;
     left: -3000em;
 }
 
-.datepicker {
-    margin-top: 1em;
-    position: relative;
-}
+
 
 .datepicker .group {
     display: flex;
-    width: 13em;
+    width: 100%;
+        
 }
 
 .datepicker label {
     display: block;
+    font-family: 'Kollektif Regular';
+    font-weight: bold;
 }
 
 .datepicker input {
-    padding: 0;
-    margin: 0;
-    height: 1.5em;
+    height :40px;
     background-color: white;
     color: black;
     border: 1px solid gray;
+    width: 100px;
+    border-radius: 5px;
+ 
 }
 
 .datepicker button.icon {
@@ -791,17 +797,22 @@ padding-right: 2%;
     padding: 4px;
     border: 0 solid white;
     border-radius: 5px;
-    
+}
+.datepicker button.icon:hover{
+    color: rgb(251, 188, 88);
 }
 
 .datepicker .desc {
     position: absolute;
     left: 0;
     top: 2em;
+    
+
 }
 
 .datepicker .fa-calendar-alt {
     color: rgb(13, 129, 153);
+    
 }
 
 .datepicker button.icon:focus {
@@ -816,14 +827,16 @@ padding-right: 2%;
 }
 
 .datepicker-dialog {
-    position: absolute;
+   
     width: 320px;
     clear: both;
     border: 3px solid white;
-    margin-top: 0.15em;
     border-radius: 5px;
     padding: 0;
     background-color: white;
+    position: fixed;
+    margin-top: -35%;
+    box-shadow: 0 0 50px 50px rgb(13, 129, 153);
 }
 
 .datepicker-dialog .header {
@@ -992,24 +1005,18 @@ color: rgb(251, 188, 88);
     background-color: rgb(13, 129, 153);
     color: black;
 }
-
-
-#deposerPanierDiv{
-    margin-top: 10%;
-    width: 90%;
-    margin-left: 10%;
+#datePickFlex{
+display: flex;
+flex-direction: column;
 }
-#myDatepicker{
-    display: flex;
-
-}
-#iconDate{
-    margin-top: -8%;
-    margin-right: 5%;
+#datePickFlex label{
+    color: rgb(251, 188, 88);
 }
 #envoyerPanierForm{
     display:flex;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: left;    
 }
 #deposerPanierTitle{
     color: white;
@@ -1018,35 +1025,38 @@ color: rgb(251, 188, 88);
 #deposerPanierDiv{
     background-color: rgb(13, 129, 153);
     border-radius: 20px;
-    width: 50%;
+    width: 60%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-left:25%;
-    height: 500px;
+    margin-left:20%;
+    height: 600px;
+    margin-top: 10%;
+    flex-direction: column;
 }
 #deposerPanierDiv h1{
     margin-bottom: 3%;
 }
 #heurePickerForm{
     display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-bottom: 5%;
 }
 #datePickerForm{
-    display: flex;
-    margin-bottom: 5%;
+    display: flex;  
+    width: 100%;
 }
 .labelHourPicker{
     color: rgb(251, 188, 88);
-    font-weight: bold;
-    width: 30%;
-    margin-right: 20%;
+    font-weight: bold;  
 }
 #heurePickerForm2 {
     display: flex;
+    flex-direction: column;
 }
 #messageDeclarerPanier{
-    width: 250px;
+    width: 400px;
     height: 100px;
 }
 #buttonDeclarerPanier{
@@ -1057,4 +1067,14 @@ color: rgb(251, 188, 88);
     height: 40px;
     border: none;
     margin-top: 5%;
+}
+.inputDeclareTime{
+    margin-top: 1%;
+}
+#myDatepicker{
+    display: flex;
+}
+#textAreaDiv{
+    display: flex;
+    flex-direction: column;
 }
