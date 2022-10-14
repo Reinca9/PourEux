@@ -1,18 +1,13 @@
 
-function sameEmail(email,email2) {
-  if (email != email2) {
-    var error = document.querySelector('#errorMailSpan');
-    error.innerHTML="<p id='verifMail'>Verifier votre email!</p>";
-  }
-  else {
-    return;
-  }
-}
-
 function validEmail() {
   const email = document.querySelector('#email').value;
   const email2 = document.querySelector('#email2').value;
+  const error = document.querySelector('#errorMailSpan');
 
-  sameEmail(email, email2);
-console.log('#email#');
+  if (email !== email2) {
+    error.textContent="Verifier votre email!";
+  }
+  else {
+    error.textContent="";
+  }
 }

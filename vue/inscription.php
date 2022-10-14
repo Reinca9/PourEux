@@ -40,8 +40,8 @@ if(isset($_POST['nom'])){
                     <div class="inputGroup">
                         <input onfocus="validEmail()" type="email" class="signInput" id="email2" name="email_repeat"
                             placeholder="Confirmez votre email">
-                        <span id="errorMailSpan"></span>
                     </div>
+                    <div id="errorMailSpan"></div>
                 </div>
                 <div class="villeAndCp">
                     <div class="inputGroup">
