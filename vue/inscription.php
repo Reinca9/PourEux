@@ -1,10 +1,13 @@
 <?php
 require('../controller/inscriptionController.php');
+require_once('../model/userModel.php');
 require('header2.php');
 if(isset($_POST['nom'])){
-  createNewUser($bdd->connexion, $_POST);
+  setNewUser($bdd->connexion, $_POST);
 }
 ?>
+<script type="text/javascript" src="../public/assets/js/sameEmail.js"></script>
+<script type="text/javascript" src="../public/assets/js/ville.js"></script>
 <div>empty content</div>
 <div id="pageInscription">
     <div id="backgroundInscription">
@@ -31,11 +34,13 @@ if(isset($_POST['nom'])){
                 </div>
                 <div id="mailInput">
                     <div class="inputGroup">
-                        <input type="text" class="signInput" id="email" name="email" placeholder="E-mail">
+                        <input type="email" class="signInput" id="email" name="email" placeholder="E-mail">
+
                     </div>
                     <div class="inputGroup">
-                        <input type="text" class="signInput" id="confirmEmail" name="confirmEmail"
+                        <input onfocus="validEmail()" type="email" class="signInput" id="email2" name="email_repeat"
                             placeholder="Confirmez votre email">
+                        <span id="errorMailSpan"></span>
                     </div>
                 </div>
                 <div class="villeAndCp">
@@ -83,4 +88,3 @@ if(isset($_POST['nom'])){
         </form>
     </div>
 </div>
-<script type="text/javascript" src="../public/assets/js/ville.js"></script>
