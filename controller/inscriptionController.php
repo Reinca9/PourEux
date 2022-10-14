@@ -8,8 +8,6 @@ require_once('../controller/function.php');
 
 
 function createNewUser(PDO $bdd, array $user){
-    
-
     if(persoIsset($user)){
         if(filter_var($user['email'], FILTER_VALIDATE_EMAIL) && $user['email'] == $user['confirmEmail']){
             if($user['mdp'] == $user['confirmMdp']){
