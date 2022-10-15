@@ -1,6 +1,5 @@
 app = {
   init: () => {
-    console.log('je suis initialisé');
     app.emailElement = document.querySelector('#email');
     app.matchEmailElement = document.querySelector('#email2');
     app.errorElement = document.querySelector('#errorMailSpan');
@@ -13,8 +12,13 @@ app = {
   },
 
   validateEmail: () => {
+    const validEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(app.emailElement.value);
+    if (!validEmail) {
+      app.errorElement.textContent = "Ceci n'est pas un format d'email valide \n\r";
+      return;
+    }
     if (app.emailElement.value !== app.matchEmailElement.value) {
-      app.errorElement.textContent="Verifier votre email!";
+      app.errorElement.textContent = "Les deux emails ne correspondent pas";
     }
     else {
       app.errorElement.textContent="";
