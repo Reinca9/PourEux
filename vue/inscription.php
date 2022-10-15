@@ -6,7 +6,8 @@ if(isset($_POST['nom'])){
   setNewUser($bdd->connexion, $_POST);
 }
 ?>
-<script defer type="text/javascript" src="../public/assets/js/sameEmail.js"></script>
+<!-- <script defer type="text/javascript" src="../public/assets/js/sameEmail.js"></script> -->
+<script type="text/javascript" src="../public/assets/js/formVerification.js"></script>
 <script defer type="text/javascript" src="../public/assets/js/ville.js"></script>
 <div>empty content</div>
 <div id="pageInscription">
