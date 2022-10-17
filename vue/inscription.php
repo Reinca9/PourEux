@@ -6,8 +6,8 @@ if(isset($_POST['nom'])){
   setNewUser($bdd->connexion, $_POST);
 }
 ?>
-<script type="text/javascript" src="../public/assets/js/sameEmail.js"></script>
-<script type="text/javascript" src="../public/assets/js/ville.js"></script>
+<script defer type="text/javascript" src="../public/assets/js/sameEmail.js"></script>
+<script defer type="text/javascript" src="../public/assets/js/ville.js"></script>
 <div>empty content</div>
 <div id="pageInscription">
     <div id="backgroundInscription">
@@ -38,10 +38,10 @@ if(isset($_POST['nom'])){
 
                     </div>
                     <div class="inputGroup">
-                        <input onfocus="validEmail()" type="email" class="signInput" id="email2" name="email_repeat"
+                        <input type="email" class="signInput" id="email2" name="email_repeat"
                             placeholder="Confirmez votre email">
-                        <span id="errorMailSpan"></span>
                     </div>
+                    <div id="errorMailSpan"></div>
                 </div>
                 <div class="villeAndCp">
                     <div class="inputGroup">
