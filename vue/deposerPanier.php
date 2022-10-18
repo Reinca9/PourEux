@@ -9,6 +9,8 @@
 </head>
 <?php 
 require('header2.php');
+require_once('../model/paniersModel.php');
+require_once('../model/userModel.php');
 ?>
 
 <body>
@@ -51,12 +53,38 @@ require('header2.php');
             </div>
         </div>
     </div>
+    <?php
+       $id = $_GET['ID'];
+    getRepasById($bdd->connexion, $id);
+    
+ 
+     if (isset ($_SESSION['id_user'])){
+            
+        }
+        
+                ?>
+
     <div id="vosPanierRepasDiv">
         <h2>Vos paniers repas</h2>
         <div class="selectPanierGroup">
-            <div>
-                <input type="text">
-            </div>
+            <form action="POST">
+                <select name="" id="">
+                    <?php
+    foreach($repas as $repasUser){
+        if($repas['id_repas_cuisinier'] == $user['id_user']){
+            echo '<option value='.$repas['id_repas'].'selected>'.$repas['nb_portions'].'</option>';
+        }else{
+            echo '<option value="repas non trouvé">aucun repas</option>';
+        }
+    }
+                    
+?>
+                </select>
+
+
+
+
+            </form>
         </div>
         <button id="buttonModifierPanier">Modifier</button>
     </div>

@@ -10,23 +10,22 @@ function getRepas(PDO $bdd){
     }
 }
 function getRepasById(PDO $bdd, $id){
-  $str = 'SELECT * FROM repas WHERE id_repas = :id';
+  $str = "SELECT*FROM repas INNER JOIN user ON user.id_user = repas.id_user_cuisinier WHERE id_repas = :id";
   $query = $bdd->prepare($str);
   $query->bindValue(':id', $id, PDO::PARAM_INT);
   $query->execute();
-
-  return $query->fetch();
+  $repas = $query->fetch();
+  return $repas;
 }
 function insertNewRepas(PDO $bdd, string $name){
-  $str = 'INSERT INTO repas (id_repas, date_preparation, date_livraison, statut_repas, id_user_repas) VALUES (:ID_produit, :nom_produit, :prix_produit, :img_produit, :ID_taxe, ID_offre, ID_categorie)';
+  $str = 'INSERT INTO repas (id_repas, timestamp_depot, nb_portions, hrdispo_repas, id_user_cuisinier, id_user_livreur) VALUES (:id_repas, CURRENT_TIMESTAMP, :nb_portions, :hrdispo_repas, :id_user_cuisinier, :id_user_livreur)';
 
   $query = $bdd->prepare($str);
-  $query->bindValue(':ID_produit', $id, PDO::PARAM_INT);
-  $query->bindValue(':nom_produit', $nomproduit, PDO::PARAM_STR);
-  $query->bindValue(':prix_produit', $prixproduit, PDO::PARAM_INT);
-  $query->bindValue(':img_produit', $imgproduit, PDO::PARAM_STR);
-  $query->bindValue(':ID_taxe', $idtaxe, PDO::PARAM_INT);
-  $query->bindValue(':ID_offre', $idoffre, PDO::PARAM_INT);
-  $query->bindValue(':ID_categorie', $idcategorie, PDO::PARAM_INT);
+  $query->bindValue(':id_repas', $idrepas, PDO::PARAM_INT);
+  $query->bindValue(CURRENT_TIMESTAMP, $timestamp, PDO::PARAM_STR);
+  $query->bindValue(':nb_portions', $nbportions, PDO::PARAM_INT);
+  $query->bindValue(':hrdispo_repas', $hrdisporepas, PDO::PARAM_STR);
+  $query->bindValue(':id_user_cuisinier', $idcuisinier, PDO::PARAM_INT);
+  $query->bindValue(':id_user_livreur', $idlivreur, PDO::PARAM_INT);
   $query->execute();
 }
