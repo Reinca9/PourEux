@@ -30,7 +30,7 @@ if(isset($_POST['nom'])){
                     </div>
                 </div>
                 <div class="inputGroup">
-                    <input type="number" class="signInput" id="tel" name="tel" placeholder="Portable">
+                    <input type="tel" class="signInput" id="tel" name="tel" placeholder="Portable">
                 </div>
                 <div id="mailInput">
                     <div class="inputGroup">
@@ -58,13 +58,8 @@ if(isset($_POST['nom'])){
                 </div>
                 <div id="adresseRue">
                     <div class="inputGroup">
-
-                        <input type="text" class="signInput" id="adressePrefix" name="adressePrefix" placeholder="Rue"
+                        <input type="text" class="signInput" id="adressePrefix" name="rue" placeholder="Rue"
                             autocomplete="address-line2">
-                    </div>
-                    <div class="inputGroup">
-                        <input type="text" class="signInput" id="adresseComplement" name="adresseComplement"
-                            placeholder="Complement d'adresse*" autocomplete="address-line4">
                     </div>
                 </div>
                 <div id="passwordGroup">
@@ -75,7 +70,7 @@ if(isset($_POST['nom'])){
                     </div>
                     <div class="inputGroup">
                         <label for="confirmMdp" class="inputLabel">
-                            <input type="password" name="confirmMdp" id="confirmMdp"
+                            <input type="password" name="mdp_repeat" id="confirmMdp"
                                 placeholder="Confirmer mot de passe" class="signInput">
                         </label>
                     </div>

@@ -1,15 +1,17 @@
 <?php
 
 function setNewUser(PDO $bdd, array $user){
-    $str = 'INSERT INTO user (prenom_user, nom_user, adresse_user, code_postal_user, telephone_user, email_user, facebook_user, id_ville_user) VALUES (:prenom_user, :nom_user, :adresse_user, :code_postal_user, :telephone_user, :email_user, :facebook_user, :id_ville_user)';
+    $str = 'INSERT INTO user (prenom_user, nom_user, mdp_user, adresse_user, code_postal_user, rue_user, telephone_user, email_user, facebook_user, id_ville_user) VALUES (:prenom_user, :nom_user, :mdp_user, :adresse_user, :code_postal_user, :rue_user, :telephone_user, :email_user, :facebook_user, :id_ville_user)';
 
     $query = $bdd->prepare($str);
     $query->bindValue(':prenom_user', $user['prenom'], PDO::PARAM_STR);
     $query->bindValue(':nom_user', $user['nom'], PDO::PARAM_STR);
-    $query->bindValue(':adresse_user', $user['adresse'], PDO::PARAM_STR);
-    $query->bindValue(':code_postal_user', $user['cp'], PDO::PARAM_STR);
+    $query->bindValue(':mdp_user', $user['mdp'], PDO::PARAM_STR);
+    $query->bindValue(':adresse_user', $user['adresseVille'], PDO::PARAM_STR);
+    $query->bindValue(':code_postal_user', $user['adresseCp'], PDO::PARAM_INT);
+    $query->bindValue(':rue_user', $user['rue'], PDO::PARAM_STR);
     $query->bindValue(':telephone_user', $user['tel'], PDO::PARAM_INT);
-    $query->bindValue(':email_user', $user['email'], PDO::PARAM_INT);
+    $query->bindValue(':email_user', $user['email'], PDO::PARAM_STR);
     $query->bindValue(':facebook_user', $user['facebook'], PDO::PARAM_STR);
     $query->bindValue(':id_ville_user', $user['ville'], PDO::PARAM_STR);
     return $query->execute();
