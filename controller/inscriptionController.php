@@ -24,11 +24,10 @@ function createNewUser(PDO $bdd, array $user){
                 //define user to insert
                 $userIns = array(
                     'nom'=> htmlspecialchars(strip_tags($user['nom'])), 
-                    'mail'=> htmlspecialchars(strip_tags($user['email'])), 
+                    'email'=> htmlspecialchars(strip_tags($user['email'])), 
                     'mdp'=> $pass, 
                     'prenom'=> htmlspecialchars(strip_tags($user['prenom'])),
                     'tel' => strip_tags(str_replace(' ', '', $user['tel'])), 
-                    'role' => 1,
                     'adresse' => $adresse->getID_adresse()
                 );
 

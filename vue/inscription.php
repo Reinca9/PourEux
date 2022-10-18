@@ -1,7 +1,7 @@
 <?php
 require('../controller/inscriptionController.php');
 require_once('../model/userModel.php');
-// require('header2.php');
+require('header2.php');
 if(isset($_POST['nom'])){
   setNewUser($bdd->connexion, $_POST);
 }
@@ -32,7 +32,7 @@ if(isset($_POST['nom'])){
                     </div>
                 </div>
                 <div class=" inputGroup">
-                    <input type="tel" class="signInput" id="tel" name="tel" placeholder="Portable">
+                    <input type="tel" class="signInput" id="tel" name="tel" placeholder="Téléphone">
                 </div>
                 <div id="mailInput">
                     <div class="inputGroup">

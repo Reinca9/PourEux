@@ -1,5 +1,9 @@
 <?php
 include('header2.php')
+if(isset($_POST['mail'])){
+    $id = strip_tags($_POST['identifiant']);
+    $pw = $_POST['mdp'];
+}
 ?>
 <div>empty content</div>
 <div id="connexionContainer">

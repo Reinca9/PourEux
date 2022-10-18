@@ -35,8 +35,17 @@ function SelectUserId(PDO $bdd, $user){
       $query->execute();
      
     }
-
-
+    function verifyConnexion(PDO $bdd, $mail, $pw){
+      $str = 'SELECT * FROM user WHERE mail=:mail';
+      $userquery = $bdd->prepare($str);
+      $userquery->bindValue(':mail', $mail, PDO::PARAM_STR);
+      $userquery->execute();
+      $bdduser = $userquery->fetch();
+      if($bdd == false){
+        echo '<span id="idInexistant">Identifiant inexistant</span>';
+      }
+    }
+    function 
 
 
 
