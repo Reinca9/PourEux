@@ -1,7 +1,7 @@
 <?php
 require('../controller/inscriptionController.php');
 require_once('../model/userModel.php');
-require('header2.php');
+// require('header2.php');
 if(isset($_POST['nom'])){
   setNewUser($bdd->connexion, $_POST);
 }
@@ -17,24 +17,27 @@ if(isset($_POST['nom'])){
                 <div class="roleGroup">
                     <label for="roleSelect" id="roleLabel">Souhaitez vous livrer ou cuisiner</label>
                     <select name="roleSelect" id="roleSelect">
-                        <option value="cuisinier">Cuisinier</option>
-                        <option value="livreur">Livreur</option>
+                        <option value="1">Cuisinier</option>
+                        <option value="2">Livreur</option>
                     </select>
                 </div>
                 <div id="nomPrenom">
                     <div class=" inputGroup">
-                        <input id="inputNom" type="text" class="signInput" id="nom" name="nom" placeholder="Nom">
+                        <input id="inputNom" type="text" class="signInput" id="nom" name="nom" placeholder="Nom"
+                            autocomplete="given-name">
                     </div>
                     <div class="inputGroup">
-                        <input type="text" class="signInput" id="prenom" name="prenom" placeholder="Prénom">
+                        <input type="text" class="signInput" id="prenom" name="prenom" placeholder="Prénom"
+                            autocomplete="family-name">
                     </div>
                 </div>
-                <div class="inputGroup">
+                <div class=" inputGroup">
                     <input type="tel" class="signInput" id="tel" name="tel" placeholder="Portable">
                 </div>
                 <div id="mailInput">
                     <div class="inputGroup">
-                        <input type="email" class="signInput" id="email" name="email" placeholder="E-mail">
+                        <input type="email" class="signInput" id="email" name="email" placeholder="E-mail"
+                            autocomplete="email">
 
                     </div>
                     <div class="inputGroup">
@@ -61,8 +64,12 @@ if(isset($_POST['nom'])){
                         <input type="text" class="signInput" id="adressePrefix" name="rue" placeholder="Rue"
                             autocomplete="address-line2">
                     </div>
+                    <div class="inputGroup">
+                        <input type="text" class="signInput" name="facebook" placeholder="Votre Facebook">
+
+                    </div>
                 </div>
-                <div id="passwordGroup">
+                <div id=" passwordGroup">
                     <div class="inputGroup">
                         <label for="mdp" class="inputLabel">
                             <input type="password" name="mdp" id="mdp" placeholder="Mot de passe" class="signInput">

@@ -1,8 +1,9 @@
 <?php
 
-function setNewUser(PDO $bdd, array $user){
-    $str = 'INSERT INTO user (prenom_user, nom_user, mdp_user, adresse_user, code_postal_user, rue_user, telephone_user, email_user, facebook_user, id_ville_user) VALUES (:prenom_user, :nom_user, :mdp_user, :adresse_user, :code_postal_user, :rue_user, :telephone_user, :email_user, :facebook_user, :id_ville_user)';
 
+function setNewUser(PDO $bdd, array $user){
+    $str = 'INSERT INTO user (prenom_user, nom_user, mdp_user, adresse_user, code_postal_user, rue_user, telephone_user, email_user, facebook_user) VALUES (:prenom_user, :nom_user, :mdp_user, :adresse_user, :code_postal_user, :rue_user, :telephone_user, :email_user, :facebook_user)';
+ 
     $query = $bdd->prepare($str);
     $query->bindValue(':prenom_user', $user['prenom'], PDO::PARAM_STR);
     $query->bindValue(':nom_user', $user['nom'], PDO::PARAM_STR);
@@ -13,16 +14,43 @@ function setNewUser(PDO $bdd, array $user){
     $query->bindValue(':telephone_user', $user['tel'], PDO::PARAM_INT);
     $query->bindValue(':email_user', $user['email'], PDO::PARAM_STR);
     $query->bindValue(':facebook_user', $user['facebook'], PDO::PARAM_STR);
-    $query->bindValue(':id_ville_user', $user['ville'], PDO::PARAM_STR);
-    return $query->execute();
-}
+    $query->execute();
+    $userId = SelectUserId($bdd, $user);
+     insertIntoUserRole($user,$bdd, $userId);
 
+}
+function SelectUserId(PDO $bdd, $user){
+      $queryUserId = 'SELECT MAX(id_user) AS id_user_user_role FROM user';
+      $query = $bdd->prepare($queryUserId);
+      $query->execute();
+      $userId = $query->fetch(PDO::FETCH_ASSOC);
+     return $userId;
+      
+    }
+    function insertIntoUserRole($user,$bdd, $userId){
+      $str = 'INSERT INTO user_role (id_role_user_role, id_user_user_role) VALUES (:b,:a)';
+      $query = $bdd->prepare($str);
+      $query->bindValue(':b',$user['roleSelect'],PDO::PARAM_INT);   
+      $query->bindValue(':a',$userId['id_user_user_role'],PDO::PARAM_INT);  
+      $query->execute();
+     
+    }
+
+
+
+
+
+
+
+
+
+
+    
 function getUserByEmail(PDO $bdd, string $mail){
     $str = 'SELECT * FROM user WHERE mail_user = :mail';
     $query = $bdd->prepare($str);
     $query->bindValue(':mail', $mail, PDO::PARAM_STR);
     $query->execute();
-
     return $query->fetch(PDO::FETCH_ASSOC);
 }
 function getUserByRepas(PDO $bdd, string $user){

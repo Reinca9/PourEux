@@ -7,11 +7,13 @@ include('header2.php')
         <h1 id="seConnecterh1">Se connecter</h1>
         <form action="" method="POST" class="loginForm">
             <div class="inputGroup">
-                <input type="email" name="mail" id="mail" placeholder="Email" class="connexionInput">
+                <input type="email" name="mail" id="mail" placeholder="Email" class="connexionInput"
+                    autocomplete="email">
             </div>
 
-            <div class="inputGroup">
-                <input type="password" name="mdp" placeholder="Mot de passe" id="mdp" class="connexionInput">
+            <div class=" inputGroup">
+                <input type="password" name="mdp" placeholder="Mot de passe" id="mdp" class="connexionInput"
+                    autocomplete="current-password">
             </div>
             <button type="submit" id="loginButton">
                 Connexion
