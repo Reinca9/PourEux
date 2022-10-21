@@ -45,13 +45,13 @@ function SelectUserId(PDO $bdd, $user){
         echo '<span id="idInexistant">Identifiant inexistant</span>';
       }
     }
-    function 
-
-
-
-
-
-
+function getUsers($bdd){
+  $userstr = 'SELECT * FROM user';
+  $userquery = $bdd->prepare($userstr);
+  $userquery->execute();
+  $bdduser = $userquery->fetchAll();
+  return $bdduser;
+}
 
 
     

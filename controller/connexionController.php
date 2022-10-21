@@ -1,26 +1,27 @@
-<?php
+<?php function connexion($bdd, $email, $mdp){
 
-function connectUser(PDO $bdd, array $array){
-  if(isset($array['mail'], $_POST['mdp'])){
-    $user['mail'] = strip_tags($array['mail']);
-    $user['mdp'] = $array['mdp'];
-    $bddInfo = getUserByEmail($bdd, $user['mail']);
-    if($bddInfo != false){
-      if(password_verify($user['mdp'], $bddInfo['mdp_user'])){
-        $_SESSION['user'] = $bddInfo;
+if(isset($email)){
 
-        assignPanierToUser($bdd);
 
-        unset($_SESSION['user']['mdp_user']);
-        unset($_SESSION['panier']);
-        header('Location: index.php');
-      } else {
-        return '<span class="error">Mauvais mot de passe</span>';
-      }
-    }else{
-      return '<span class="error">Adresse mail inconnue</span>';
+    $bdduser = verifUser($bdd, $email);
+    if ( $bdduser == false OR empty($bdduser)){
+      echo 'identifiant inexistant';
     }
-  }
+    else {
+      $mdpHash = $bdduser['mdp'];
+      $mdp = password_verify($mdp, $mdpHash);
+      echo 'mot de passe invalide';
+    }
+    if ($mdp ==  true ){
+        echo 'connecté';
+        header('Location:index.php');
+        $_SESSION['id_role']= $bdduser['id_role'];
+        $_SESSION['email'] = $email;
+        $_SESSION ['mdp'] =  $mdp;
+   }
+    else{
+        echo 'mot de passe invalide';
+         }
+    }
 }
-
 ?>

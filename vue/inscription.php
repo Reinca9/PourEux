@@ -1,9 +1,8 @@
 <?php
-require('../controller/inscriptionController.php');
-require_once('../model/userModel.php');
+require_once('../controller/inscriptionController.php');
 require('header2.php');
 if(isset($_POST['nom'])){
-  setNewUser($bdd->connexion, $_POST);
+  createNewUser($bdd->connexion, $_POST);
 }
 ?>
 <script defer type="text/javascript" src="../public/assets/js/sameEmail.js"></script>
@@ -72,13 +71,14 @@ if(isset($_POST['nom'])){
                 <div id=" passwordGroup">
                     <div class="inputGroup">
                         <label for="mdp" class="inputLabel">
-                            <input type="password" name="mdp" id="mdp" placeholder="Mot de passe" class="signInput">
+                            <input type="password" name="mdp" id="mdp" placeholder="Mot de passe" class="signInput"
+                                minlength="5">
                         </label>
                     </div>
-                    <div class="inputGroup">
+                    <div class=" inputGroup">
                         <label for="confirmMdp" class="inputLabel">
                             <input type="password" name="mdp_repeat" id="confirmMdp"
-                                placeholder="Confirmer mot de passe" class="signInput">
+                                placeholder="Confirmez le mot de passe" class="signInput" minlength="5">
                         </label>
                     </div>
                 </div>

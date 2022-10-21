@@ -7,46 +7,46 @@ require_once('../model/villeModel.php');
 require_once('../controller/function.php');
 
 
-function createNewUser(PDO $bdd, array $user){
-    if(persoIsset($user)){
-        if(filter_var($user['email'], FILTER_VALIDATE_EMAIL) && $user['email'] == $user['confirmEmail']){
-            if($user['mdp'] == $user['confirmMdp']){
-                $ID_ville = getVilleByNameAndCp($bdd, ['nom' => $user['adresseVille'], 'cp' => $user['adresseCp']]);
 
-                $adresse = new AdresseModel(null, $user['adresseName'], $user['adressePrefix'], $user['adresseNumber'], $ID_ville['ID_ville']);
+function inscription($bdd, $array){
+    $ok =  false;
+    if(isset($array['nom']) && isset($array['ville'])){
+        $mdp = strip_tags($array['mdp']);
+        $nom = strip_tags($array['nom']);
+        $prenom = strip_tags($array['prenom']);
+        $email = strip_tags($array['email']);
+        $tel = strip_tags($array['tel']);
+        $adresse = strip_tags($array['rue']);
+        $mdp2 = strip_tags($array['mdp_repeat']);
+        $cp = strip_tags($array['adresseCp']);
+        $ville = strip_tags($array['adresseVille']);
+        $fb = strip_tags($array['facebook']);
+        $ok =  false;
+        if(isset($array['email'])){
+            if ($array['mdp'] == $array['mdp_repeat']) {
 
-                $adresse->saveAdresse($bdd);
-
-                //define password hash
-                $pass = password_hash($user['mdp'], PASSWORD_BCRYPT);
-
-
-                //define user to insert
-                $userIns = array(
-                    'nom'=> htmlspecialchars(strip_tags($user['nom'])), 
-                    'email'=> htmlspecialchars(strip_tags($user['email'])), 
-                    'mdp'=> $pass, 
-                    'prenom'=> htmlspecialchars(strip_tags($user['prenom'])),
-                    'tel' => strip_tags(str_replace(' ', '', $user['tel'])), 
-                    'adresse' => $adresse->getID_adresse()
-                );
-
-                //setUser in DB
-                if(setUser($bdd, $userIns)) return
-                    '<span class="success">Utilisateur crée.</span>';
-
+                $bdduser = getUsers($bdd);
+                foreach ($bdduser as $resultat){
+                    if ($email == $resultat ['email'])
+                    $ok =  true;
+                }
             }
-            else{
-                return '<span class="error">Vos mots de passe ne correspondent pas</span>';
+            $mdp = password_hash($mdp, PASSWORD_BCRYPT);
+            if (isset($prenom, $age, $telephone, $email, $email, $adresse, $mdp, $ville)){
+                if ($ok == false) {
+                    $bddarray = getVilleByNom($bdd, $ville);
+                    foreach($bddarray as $resultat ){
+                        $ville_id = $resultat ['ville_id'];
+                    }
+                    if(isset($ville_id)){
+                        setNewUser($bdd, $mdp, $nom, $prenom, $email, $age, $adresse, $tel, $ville_id);
+                    }
+                }
             }
-        }else{
-            return '<span class="error"> Merci de saisir un email valide</span>';
         }
-    } else {
-        return '<span class="error">Merci de compléter tout les champs obligatoire</span>';
     }
-
 }
 
-
+function createNewUser(PDO $bdd, array $user){
+}
 ?>
