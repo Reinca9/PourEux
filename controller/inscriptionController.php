@@ -36,7 +36,7 @@ function inscription($bdd, $array){
                 if ($ok == false) {
                     $bddarray = getVilleByNom($bdd, $ville);
                     foreach($bddarray as $resultat ){
-                        $ville_id = $resultat ['ville_id'];
+                        $ville_id = $resultat['adresseVille'];
                     }
                     if(isset($ville_id)){
                         setNewUser($bdd, $mdp, $nom, $prenom, $email, $age, $adresse, $tel, $ville_id);
@@ -45,8 +45,5 @@ function inscription($bdd, $array){
             }
         }
     }
-}
-
-function createNewUser(PDO $bdd, array $user){
 }
 ?>

@@ -432,19 +432,11 @@ border: 2px dashed pink;
 #mdp:invalid:focus {
     background-color: pink;
 }
-#mdp:valid{
-    background-color: rgb(95, 245, 95);
-}
 #confirmMdp:invalid {
     border: 2px dashed pink;
 }
-
 #confirmMdp:invalid:focus {
     background-color: pink;
-}
-
-#confirmMdp:valid {
-    background-color: rgb(95, 245, 95);
 }
 #loginLogoSvgInscription {
     width: 400px;

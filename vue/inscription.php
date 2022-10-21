@@ -2,7 +2,7 @@
 require_once('../controller/inscriptionController.php');
 require('header2.php');
 if(isset($_POST['nom'])){
-  createNewUser($bdd->connexion, $_POST);
+  inscription($bdd->connexion, $_POST);
 }
 ?>
 <script defer type="text/javascript" src="../public/assets/js/sameEmail.js"></script>

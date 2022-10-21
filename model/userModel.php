@@ -1,7 +1,5 @@
 <?php
-
-
-function setNewUser(PDO $bdd, array $user){
+function setNewUser($bdd, $mdp, $nom, $prenom, $email, $age, $adresse, $tel, $ville_id){
     $str = 'INSERT INTO user (prenom_user, nom_user, mdp_user, adresse_user, code_postal_user, rue_user, telephone_user, email_user, facebook_user) VALUES (:prenom_user, :nom_user, :mdp_user, :adresse_user, :code_postal_user, :rue_user, :telephone_user, :email_user, :facebook_user)';
  
     $query = $bdd->prepare($str);
@@ -92,5 +90,12 @@ function connectUser(PDO $bdd, array $array){
     }
   }
 }
-
+function getVilleByNom($bdd, $nom){
+  $selectstr = 'SELECT * FROM ville WHERE ville_nom=:ville';
+  $userquery = $bdd->prepare($selectstr);
+  $userquery->bindValue(':ville', $nom, PDO::PARAM_STR);
+  $userquery->execute();
+  $bddarray = $userquery->fetchAll();
+  return $bddarray;
+}
 ?>
