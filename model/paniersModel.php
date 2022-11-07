@@ -7,6 +7,7 @@ function getRepas(PDO $bdd){
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }else{
         throw new \Exception("Vous n'avez déclaré aucun repas");
+        
     }
 }
 function getRepasById(PDO $bdd, $id){
