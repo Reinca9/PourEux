@@ -1120,3 +1120,19 @@ margin-left: 20%;
     color: rgb(255, 31, 31);
     border: none;
 }
+#mainContact{
+    width: 60%;
+    background-color: rgb(13, 129, 153);
+    margin-left: 20%;
+    margin-top: 10%;
+    border-radius:20px;
+}
+#mainContact{
+    display: flex;
+    flex-direction: column;
+}
+#mainContactText{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}

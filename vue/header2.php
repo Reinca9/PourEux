@@ -9,7 +9,7 @@
               <a href="index.php?page=actualités">Actualités</a>
               <a href="index.php?page=deposerPanier">Paniers Repas</a>
               <a href="">Livraisons</a>
-              <a href="">Contact</a>
+              <a href="index.php?page=contact">Contact</a>
           </div>
 
           <div id="sideheader2">

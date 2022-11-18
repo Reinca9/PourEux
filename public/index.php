@@ -52,6 +52,9 @@ $bdd = new Database('poureuxbdd', 'root', '', 'localhost');
         case 'deposerPanier':
             include('../vue/deposerPanier.php');
             break;
+        case 'contact':
+            include('../vue/contact.php');
+            break;
         default:
             include('../vue/accueil.php');
         }

@@ -17,7 +17,6 @@ function inscription($bdd, $array){
         $email = strip_tags($array['email']);
         $tel = strip_tags($array['tel']);
         $adresse = strip_tags($array['rue']);
-        $mdp2 = strip_tags($array['mdp_repeat']);
         $cp = strip_tags($array['adresseCp']);
         $ville = strip_tags($array['adresseVille']);
         $fb = strip_tags($array['facebook']);

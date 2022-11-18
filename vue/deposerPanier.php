@@ -46,7 +46,7 @@ require_once('../model/userModel.php');
                             <textarea name=" messageDeclarerPanier" form="envoyerPanierForm" id="messageDeclarerPanier"
                                 cols="30" rows="10"
                                 placeholder="Avez vous des informations à communiquer au livreur..."></textarea>
-                            <button id="buttonDeclarerPanier" type=" submit">C'est parti!</button>
+                            <button id="buttonDeclarerPanier" type="submit">C'est parti!</button>
                         </div>
                     </form>
                 </div>
@@ -54,7 +54,7 @@ require_once('../model/userModel.php');
         </div>
     </div>
     <?php
-       $id = $_GET['ID'];
+       $id = $_POST['ID'];
     getRepasById($bdd->connexion, $id);
     
  
