@@ -55,6 +55,9 @@ $bdd = new Database('poureuxbdd', 'root', '', 'localhost');
         case 'contact':
             include('../vue/contact.php');
             break;
+        case 'livraison':
+            include('../vue/livraison.php');
+            break;
         default:
             include('../vue/accueil.php');
         }

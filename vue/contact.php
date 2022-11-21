@@ -3,6 +3,7 @@
 <?php
 include('header2.php');
 ?>
+<script src="https://kit.fontawesome.com/bd1f979c00.js" crossorigin="anonymous"></script>
 
 <head>
     <meta charset="UTF-8">
@@ -14,15 +15,19 @@ include('header2.php');
 <body>
     <div>empty content</div>
     <main id="mainContact">
-        <div id="mainContactText">
+        <div id="mainContactContent">
             <h1>Contact</h1>
-            <span>03 xx xx xx xx</span>
-            <span>06 xx xx xx xx</span>
-            <input type=" text" placeholder="Nom">
-            <input type="text" placeholder="eMail">
-            <textarea name="" id="" cols="30" rows="10" placeholder="Tapez votre message ici"></textarea>
-            <input type="submit">C'est parti!</input>
-        </div>
+            <span><i class="fa-solid fa-phone contactIcons"></i> 03 xx xx xx xx</span>
+            <span><i class="fa-solid fa-mobile contactIcons contactPhoneIcon"></i> 06 xx xx xx xx</span>
+            <div id="formContact">
+                <span>
+                    <input id=" contactName" type=" text" placeholder="Votre nom">
+                    <input id="contactEmail" type="email" placeholder="Votre email">
+                </span>
+                <textarea name="" id="contactTA" cols="30" rows="10" placeholder="Tapez votre message ici"></textarea>
+                <button id="contactSubmitButton" type="submit">C'est parti</button>
+
+            </div>
     </main>
 </body>
 

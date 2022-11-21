@@ -1126,13 +1126,96 @@ margin-left: 20%;
     margin-left: 20%;
     margin-top: 10%;
     border-radius:20px;
+    color: white;
 }
 #mainContact{
     display: flex;
     flex-direction: column;
+    height:500px;
+
 }
-#mainContactText{
+#mainContactContent{
     display: flex;
     flex-direction: column;
     width: 50%;
+    font-family: 'Kollektif Regular';
+    justify-content: center;
+    margin-left: 15%;
+    margin-top: 5%;
+    
+}
+.contactIcons{
+    color: rgb(251, 188, 88);
+    font-size: 200%;
+    margin-right: 1%;
+}
+#formContact{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
+}
+#formContact span input{
+    margin-bottom: 1%;
+    margin-right: 2%;
+    width : 38.5%;
+}
+#contactTA{
+    width: 80%;
+    height: 30%;
+}
+#mainContactContent span {
+    margin-bottom: 2%;
+}
+.contactPhoneIcon{
+    margin-right: 3%;
+}
+#contactSubmitButton{
+    height: 35px;
+    background-color: rgb(251, 188, 88);
+    border: none;
+    border-radius: 8px;
+    width: 80%;
+    margin-top: 2%;
+    color: white;
+    font-family: 'Kollektif Regular';
+}
+#mainLivraison{
+    background-color: rgb(13, 129, 153);
+    margin-left: 20%;
+    width: 60%;
+    border-radius: 10px;
+    height: 500px;
+    
+    
+}
+#listePaniersDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+#listePaniersDiv h1{
+    color: white;
+    font-family: 'Kollektif Regular';
+    font-size: 200%;
+    margin-bottom: 20%;
+    margin-top: 5%;
+}
+#listePaniersDiv i{
+    color: rgb(251, 188, 88);
+    margin-left: 30%;
+    font-size: 150%;
+    border: white solid 3px;
+    border-radius: 10px;
+    border-color: rgb(251, 188, 88);
+    margin-right: 1%;
+    padding: 3px;
+}
+#listeBouclePaniers{
+    color: white;
+    font-family: 'Kollektif Regular';
+}
+#flexDivLivraison{
+    display: flex;
+    flex-direction: column;
 }

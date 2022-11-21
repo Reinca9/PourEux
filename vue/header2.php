@@ -8,7 +8,7 @@
               <a href="index.php?page=signin">Nous rejoindre</a>
               <a href="index.php?page=actualités">Actualités</a>
               <a href="index.php?page=deposerPanier">Paniers Repas</a>
-              <a href="">Livraisons</a>
+              <a href="index.php?page=livraison">Livraisons</a>
               <a href="index.php?page=contact">Contact</a>
           </div>
 

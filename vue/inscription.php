@@ -82,7 +82,7 @@ if(isset($_POST['nom'])){
                         </label>
                     </div>
                 </div>
-                <button class=" signButton" id="jeMinscris" type=" submit">
+                <button class=" signButton" id="jeMinscris" type="submit">
                     M'inscrire
                 </button>
         </div>
