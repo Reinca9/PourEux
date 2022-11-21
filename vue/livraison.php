@@ -20,9 +20,11 @@ include('header2.php');
                 <span id="listeBouclePaniers">PANIER<i class=" fa-solid fa-plus"></i></i>Ajouter à vos livraisons</span>
             </div>
         </div>
-        <div>
-            <h2>Vos livraisons</h2>
-            <span></span>
+        <div id="listeLivraisonsDiv">
+            <div id="flexDivVosLivraisons">
+                <h2>Vos livraisons</h2>
+                <span>Vous livrez<i class=" fa-solid fa-trash"></i></span>
+            </div>
         </div>
     </section>
 </body>
