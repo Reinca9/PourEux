@@ -1249,6 +1249,6 @@ display: flex;
 }
 #flexDivVosLivraisons{
     display: flex;
-        flex-direction: column;
+    flex-direction: column;
     
 }

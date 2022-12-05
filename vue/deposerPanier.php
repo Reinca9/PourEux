@@ -24,29 +24,24 @@ require_once('../model/userModel.php');
                         <div id="datePickerForm">
 
                             <div id="datePickFlex">
-                                <label for="datePick">Date du repas préparé</label>
+                                <label for="datePick">Date de disponibilité</label>
                                 <input type="date" placeholder="MM/JJ/AAAA" id="id-textbox-1"
-                                    aria-describedby="id-description-1">
+                                    aria-describedby="id-description-1" name="dateDispo">
                                 <span class="desc" id="id-description-1"> <span class="sr-only">
                             </div>
                         </div>
                         <div id="heurePickerForm">
                             <div>
-                                <label class="labelHourPicker" for="appt">Heure début disponiblité</label>
-                                <input type="time" id="appt" name="appt" min="11:00" max="21:00"
-                                    class="inputDeclareTime" required>
-                            </div>
-                            <div>
-                                <label class="labelHourPicker" for=" appt">Heure fin disponiblité</label>
-                                <input type="time" id="appt" name="appt" min="11:00" max="21:00"
-                                    class="inputDeclareTime" required>
+                                <label class="labelHourPicker" for="appt">Heure de disponiblité</label>
+                                <input type="time" id="appt" name="heureDispo" min="11:00" max="21:00"
+                                    class="inputDeclareTime" required>  
                             </div>
                         </div>
                         <div id="textAreaDiv">
                             <textarea name=" messageDeclarerPanier" form="envoyerPanierForm" id="messageDeclarerPanier"
                                 cols="30" rows="10"
-                                placeholder="Avez vous des informations à communiquer au livreur..."></textarea>
-                            <button id="buttonDeclarerPanier" type="submit">C'est parti!</button>
+                                placeholder="Avez vous des informations à communiquer au livreur..."></textarea name="messageDepot">
+                            <button id="buttonDeclarerPanier" type="submit" name="panierSubmit">C'est parti!</button>
                         </div>
                     </form>
                 </div>
@@ -54,29 +49,50 @@ require_once('../model/userModel.php');
         </div>
     </div>
     <?php
-       $id = $_POST['ID'];
-    getRepasById($bdd->connexion, $id);
-    
- 
-     if (isset ($_SESSION['id_user'])){
-            
-        }
-        
+       if(isset($_POST['panierSubmit'])){
+        insertNewRepas($bdd);
+       }
+
+       if (isset ($_SESSION ['mail']) && isset($_SESSION['mdp'])){
+$login = $_SESSION['mail'];
+$mdp = $_SESSION ['mdp'];
+$authok = true;
+
+}
                 ?>
 
     <div id="vosPanierRepasDiv">
-        <h2>Vos paniers repas</h2>
+        <h2>Vos paniers repas déclarés</h2>
         <div class="selectPanierGroup">
             <form action="POST">
                 <select name="" id="">
                     <?php
-    foreach($repas as $repasUser){
-        if($repas['id_repas_cuisinier'] == $user['id_user']){
-            echo '<option value='.$repas['id_repas'].'selected>'.$repas['nb_portions'].'</option>';
-        }else{
-            echo '<option value="repas non trouvé">aucun repas</option>';
-        }
-    }
+ $selectStr = "SELECT*FROM repas INNER JOIN user ON id_user = repas.id_user_cuisinier WHERE user.id_user LIKE :id_user_cuisinier";
+            $query = $bdd->prepare($selectStr);
+            $query->bindValue(':marque', '%' . $_POST['search'] . '%', PDO::PARAM_STR);
+            $query->execute();
+            $queryArray = $query->fetchAll();
+           
+        
+            if ($queryArray != null) {
+                foreach ($queryArray as $result) {
+
+                    echo "<tr>";
+                    echo "<td> " . $result['modele'] . "</td>";
+                    echo "<td> " . $result['Couleur'] . "</td>";
+                    echo "<td>" . $result['Nom'] . "</td>";
+                    echo "<td>" . $result['immat']  . "</td>";
+                    if ($admin == true ){
+                    echo "<td>  <a id='delete'href='./index.php?page=delete&amp;ID=$result[ID_voiture]'> Supprimer</a></td>";
+                    echo "<td>  <a id='update'href='./index.php?page=modifier&amp;ID=$result[ID_voiture]'> Mettre à jour </a></td>";
+                    echo "</tr>";
+                    }
+                }
+           
+            } else {
+                echo '<div id="errormessage">  Aucun véhicule ne correspond à cette marque </div>';
+            }
+        
                     
 ?>
                 </select>

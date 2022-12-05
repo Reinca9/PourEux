@@ -3,6 +3,29 @@ include('header2.php');
 if(isset($_POST['mail'])){
     $id = strip_tags($_POST['identifiant']);
     $pw = $_POST['mdp'];
+    if(empty($_POST['recaptcha-response'])){
+        echo '<div>  remplir le captcha </div>';
+    };
+}
+$url = "https://www.google.com/recaptcha/api/siteverify?secret=6LehoFMiAAAAAKxB97Wjry-mpDY3FFhmvAQ4FZr0}";
+if(function_exists('curl_version')){
+    $curl = curl_init($url);
+    curl_setopt($curl, CURLOPT_HEADER, false);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_TIMEOUT, 1);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+    $response = curl_exec($curl);
+}else{
+    $response = file_get_contents($url);
+}
+if(empty($response) || is_null($response)){
+   
+}else{
+    $data = json_decode($response);
+    if($data->success){
+    }else{
+       
+    }
 }
 ?>
 <div>empty content</div>
@@ -34,7 +57,15 @@ if(isset($_POST['mail'])){
             </div>
 
 
-
+<input type="hidden" id="recaptchaResponse" name="recaptcha-response">
+<script src="https://www.google.com/recaptcha/api.js?render=6LehoFMiAAAAALMS729hoUB6KDhj2VlignCcCNC8"></script>
+<script>
+grecaptcha.ready(function() {
+    grecaptcha.execute('6LehoFMiAAAAALMS729hoUB6KDhj2VlignCcCNC8', {action: ''}).then(function(token) {
+        document.getElementById('recaptchaResponse').value = token
+    });
+});
+</script>
         </form>
     </div>
     <img id="loginLogoSvg" src=" assets/img/login-logo.svg" alt="">

@@ -10,6 +10,16 @@ include('header2.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<?php
+if (isset ($_SESSION ['mail']) && isset($_SESSION['mdp'])){
+$login = $_SESSION['mail'];
+$mdp = $_SESSION ['mdp'];
+$authok = true;
+
+}
+
+$display = "SELECT*FROM repas"
+?>
 
 <body>
     <div>empty content</div>
