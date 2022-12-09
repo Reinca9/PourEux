@@ -8,12 +8,24 @@
     <title>Document</title>
 </head>
 <?php 
-require('header2.php');
+// require('header2.php');
 require_once('../model/paniersModel.php');
 require_once('../model/userModel.php');
-$userid = $_POST['mail'];
-?>
+require_once('../config/Database.php');
 
+
+                  
+$userid = $_POST['mail'];
+$loggedInUserId = "SELECT id_user FROM user WHERE email_user ='$userid'";
+$queryStr = "SELECT*FROM repas WHERE id_user_cuisinier = '$loggedInUserId'";
+
+$query = $bdd->prepare($queryStr);
+  $query->bindValue(':id', $id, PDO::PARAM_INT);
+  $query->execute();
+  $result = $query->fetch();
+
+
+            ?>
 <body>
     <div>empty content</div>
     <div id="deposerPanierDiv">
@@ -66,11 +78,11 @@ $authok = true;
         <h2>Vos paniers repas déclarés</h2>
         <div class="selectPanierGroup">
             <form action="POST">
-                <select name="" id="">
-                    <?php
- $selectStr = "SELECT*FROM repas INNER JOIN user ON id_user = repas.id_user_cuisinier WHERE user.id_user LIKE :id_user_cuisinier";
-            ?>
-                </select>
+                
+                    <input type="text" value="<?php echo $result['repas_statut'] ?>"/>
+
+
+                
 
 
 

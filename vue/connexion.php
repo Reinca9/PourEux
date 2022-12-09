@@ -1,8 +1,8 @@
 <?php
 include('header2.php');
 if(isset($_POST['mail'])){
-    $mailId = strip_tags($_POST['mail']);
-    $pw = $_POST['mdp'];
+    $username = strip_tags($_POST['mail']);
+    $password = $_POST['mdp'];
     
 }
 $url = "https://www.google.com/recaptcha/api/siteverify?secret=6LehoFMiAAAAAKxB97Wjry-mpDY3FFhmvAQ4FZr0}";

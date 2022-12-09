@@ -1,9 +1,11 @@
 <?php
 
 session_start();
-require('../model/config/Database.php');
+require('../config/Database.php');
 $bdd = new Database('poureuxbdd', 'root', '', 'localhost');
 
+'CREATE TABLE user (id_user INT AUTO_INCREMENT NOT NULL, prenom_user VARCHAR(255) NOT NULL, nom_user VARCHAR(255) NOT NULL 
+DEFAULT CHARACTER SET utf32_general_ci COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB'
 
 ?>
 <!DOCTYPE html>
