@@ -16,9 +16,10 @@ if ( $bdduser == false){
 echo '<div id="idInexistant">Identifiant inexistant</div>';
  }
 else {
-$password = password_verify($password, $bdduser['mdp_user']);
+$passwordVerif = $bdduser['mdp_user'];
+$password = password_verify($password, $passwordVerif);
 
-  if ($password ==  true ){
+  if ($password ==  true){
    echo '<div id="vousEtesConnecté">Connecté</div>';
   $_SESSION['identifiant'] = $username;
   $_SESSION ['mdp'] =  $password;

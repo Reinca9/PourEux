@@ -1,5 +1,5 @@
 <?php
-// include('header2.php');
+include('header2.php');
 require_once('../controller/connexionController.php');
 
 
@@ -29,7 +29,7 @@ if(empty($response) || is_null($response)){
     }
 }
 ?>
-<div>empty content</div>
+<div>.</div>
 <div id="connexionContainer">
     <div id="formConnexionContainer">
         <h1 id="seConnecterh1">Se connecter</h1>

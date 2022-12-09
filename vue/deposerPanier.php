@@ -15,7 +15,7 @@ require_once('../config/Database.php');
 
 
                   
-$userid = $_POST['mail'];
+$userid = $_SESSION['identifiant'];
 $loggedInUserId = "SELECT id_user FROM user WHERE email_user ='$userid'";
 $queryStr = "SELECT*FROM repas WHERE id_user_cuisinier = '$loggedInUserId'";
 
