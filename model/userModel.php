@@ -1,23 +1,24 @@
 <?php
-function setNewUser($bdd, $mdp, $nom, $prenom, $email, $age, $adresse, $tel, $ville_id)
+function setNewUser($bdd, $array)
 {
+  $password = password_hash($array['mdp'], PASSWORD_BCRYPT);
   $str = 'INSERT INTO user (prenom_user, nom_user, mdp_user, adresse_user, code_postal_user, rue_user, telephone_user, email_user, facebook_user) VALUES (:prenom_user, :nom_user, :mdp_user, :adresse_user, :code_postal_user, :rue_user, :telephone_user, :email_user, :facebook_user)';
 
   $query = $bdd->prepare($str);
-  $query->bindValue(':prenom_user', $user['prenom'], PDO::PARAM_STR);
-  $query->bindValue(':nom_user', $user['nom'], PDO::PARAM_STR);
-  $query->bindValue(':mdp_user', $user['mdp'], PDO::PARAM_STR);
-  $query->bindValue(':adresse_user', $user['adresseVille'], PDO::PARAM_STR);
-  $query->bindValue(':code_postal_user', $user['adresseCp'], PDO::PARAM_INT);
-  $query->bindValue(':rue_user', $user['rue'], PDO::PARAM_STR);
-  $query->bindValue(':telephone_user', $user['tel'], PDO::PARAM_INT);
-  $query->bindValue(':email_user', $user['email'], PDO::PARAM_STR);
-  $query->bindValue(':facebook_user', $user['facebook'], PDO::PARAM_STR);
+  $query->bindValue(':prenom_user', $array['prenom'], PDO::PARAM_STR);
+  $query->bindValue(':nom_user', $array['nom'], PDO::PARAM_STR);
+  $query->bindValue(':mdp_user', $password, PDO::PARAM_STR);
+  $query->bindValue(':adresse_user', $array['adresseVille'], PDO::PARAM_STR);
+  $query->bindValue(':code_postal_user', $array['adresseCp'], PDO::PARAM_INT);
+  $query->bindValue(':rue_user', $array['rue'], PDO::PARAM_STR);
+  $query->bindValue(':telephone_user', $array['tel'], PDO::PARAM_INT);
+  $query->bindValue(':email_user', $array['email'], PDO::PARAM_STR);
+  $query->bindValue(':facebook_user', $array['facebook'], PDO::PARAM_STR);
   $query->execute();
-  $userId = SelectUserId($bdd, $user);
-  insertIntoUserRole($user, $bdd, $userId);
+  $userId = SelectUserId($bdd, $array);
+  insertIntoUserRole($array, $bdd, $userId);
 }
-function SelectUserId(PDO $bdd, $user)
+function SelectUserId(PDO $bdd, $array)
 {
   $queryUserId = 'SELECT MAX(id_user) AS id_user_user_role FROM user';
   $query = $bdd->prepare($queryUserId);
@@ -33,6 +34,7 @@ function insertIntoUserRole($user, $bdd, $userId)
   $query->bindValue(':a', $userId['id_user_user_role'], PDO::PARAM_INT);
   $query->execute();
 }
+
 function verifyConnexion(PDO $bdd, $mail, $pw)
 {
   $str = 'SELECT * FROM user WHERE mail=:mail';

@@ -18,7 +18,7 @@ $authok = true;
 
 }
 
-$display = "SELECT*FROM repas"
+
 ?>
 
 <body>

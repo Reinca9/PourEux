@@ -11,6 +11,7 @@
 require('header2.php');
 require_once('../model/paniersModel.php');
 require_once('../model/userModel.php');
+$userid = $_POST['mail'];
 ?>
 
 <body>
@@ -68,33 +69,7 @@ $authok = true;
                 <select name="" id="">
                     <?php
  $selectStr = "SELECT*FROM repas INNER JOIN user ON id_user = repas.id_user_cuisinier WHERE user.id_user LIKE :id_user_cuisinier";
-            $query = $bdd->prepare($selectStr);
-            $query->bindValue(':marque', '%' . $_POST['search'] . '%', PDO::PARAM_STR);
-            $query->execute();
-            $queryArray = $query->fetchAll();
-           
-        
-            if ($queryArray != null) {
-                foreach ($queryArray as $result) {
-
-                    echo "<tr>";
-                    echo "<td> " . $result['modele'] . "</td>";
-                    echo "<td> " . $result['Couleur'] . "</td>";
-                    echo "<td>" . $result['Nom'] . "</td>";
-                    echo "<td>" . $result['immat']  . "</td>";
-                    if ($admin == true ){
-                    echo "<td>  <a id='delete'href='./index.php?page=delete&amp;ID=$result[ID_voiture]'> Supprimer</a></td>";
-                    echo "<td>  <a id='update'href='./index.php?page=modifier&amp;ID=$result[ID_voiture]'> Mettre à jour </a></td>";
-                    echo "</tr>";
-                    }
-                }
-           
-            } else {
-                echo '<div id="errormessage">  Aucun véhicule ne correspond à cette marque </div>';
-            }
-        
-                    
-?>
+            ?>
                 </select>
 
 

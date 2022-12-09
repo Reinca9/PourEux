@@ -1,6 +1,5 @@
 <?php
 
-
 session_start();
 require('../model/config/Database.php');
 $bdd = new Database('poureuxbdd', 'root', '', 'localhost');

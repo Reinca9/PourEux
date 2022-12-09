@@ -1,11 +1,9 @@
 <?php
 include('header2.php');
 if(isset($_POST['mail'])){
-    $id = strip_tags($_POST['identifiant']);
+    $mailId = strip_tags($_POST['mail']);
     $pw = $_POST['mdp'];
-    if(empty($_POST['recaptcha-response'])){
-        echo '<div>  remplir le captcha </div>';
-    };
+    
 }
 $url = "https://www.google.com/recaptcha/api/siteverify?secret=6LehoFMiAAAAAKxB97Wjry-mpDY3FFhmvAQ4FZr0}";
 if(function_exists('curl_version')){

@@ -1,27 +1,41 @@
 <?php function connexion($bdd, $email, $mdp){
 
-if(isset($email)){
+if(isset($_POST['mail'])){
+$id = strip_tags($_POST['mail']); 
+$password = ($_POST['mdp']);
+
+$userstr = 'SELECT * FROM user WHERE email_user=:email_user';
+$userquery = $bdd->prepare($userstr);
+$userquery->bindValue(':email_user', $id, PDO::PARAM_STR);
+$userquery->execute();
+$bdduser = $userquery->fetch();
+if ( $bdduser == false){
+echo '<div> identifiant inexistant </div>';
 
 
-    $bdduser = verifUser($bdd, $email);
-    if ( $bdduser == false OR empty($bdduser)){
-      echo 'identifiant inexistant';
+}
+else {
+$passwordHash = $bdduser['mdp'];
+$password = password_verify($password, $passwordHash);
+
+  if ($password ==  true ){
+  echo 'connecté';
+
+  $_SESSION['ID_role']= $bdduser['ID_role'];
+  $_SESSION['id'] = $id;
+  $_SESSION ['mdp'] =  $password;
+  header('Location:index.php');
+  }
+  else{
+echo 'mot de passe invalide';
+
+
     }
-    else {
-      $mdpHash = $bdduser['mdp'];
-      $mdp = password_verify($mdp, $mdpHash);
-      echo 'mot de passe invalide';
-    }
-    if ($mdp ==  true ){
-        echo 'connecté';
-        header('Location:index.php');
-        $_SESSION['id_role']= $bdduser['id_role'];
-        $_SESSION['email'] = $email;
-        $_SESSION ['mdp'] =  $mdp;
+
    }
-    else{
-        echo 'mot de passe invalide';
-         }
-    }
+
+  }
+     
+        
 }
 ?>

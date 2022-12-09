@@ -23,12 +23,12 @@ function insertNewRepas(PDO $bdd){
         $hDepot = $_POST['heureDispo'];
         $dDepot = $_POST['dateDispo'];
         $mDepot = $_POST['messageDepot'];
-        $queryStr = "INSERT INTO repas (id_repas, timestamp_depot, hrdispo_repas, id_user_cuisinier, id_user_livreur, repas_statut, message_depot) VALUES (null, CURRENT_TIMESTAMP(), :hrdispo_repas, :id_user_cuisiner, :id_user_livreur, :repas_statut, :message_depot)";
+        $queryStr = "INSERT INTO repas (timestamp_depot, hrdispo_repas, id_user_cuisinier, id_user_livreur, repas_statut, message_depot) VALUES (CURRENT_TIMESTAMP(), :hrdispo_repas, :id_user_cuisiner, :id_user_livreur, disponible, :message_depot)";
         $query = $bdd->prepare($queryStr);
         $query->bindValue(':hrdispo_repas', $hrdispoRepas, PDO::PARAM_INT);
-        $query->bindValue(':id_user_cuisinier', $_SESSION['id_user'], PDO::PARAM_INT);
+        $query->bindValue(':id_user_cuisinier', $userid, PDO::PARAM_INT);
         $query->bindValue(':id_user_livreur', $idUserLivreur, PDO::PARAM_INT);
-        $query->bindValue(':repas_statut', $repasStatut, PDO::PARAM_STR);
+        $query->bindValue('disponible', $repasStatut, PDO::PARAM_STR);
         $query->bindValue(':message_depot', $mDepot, PDO::PARAM_STR);
         $query->execute();
        }
