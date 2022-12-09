@@ -1,9 +1,12 @@
 <?php
-include('header2.php');
+// include('header2.php');
+require_once('../controller/connexionController.php');
+
+
 if(isset($_POST['mail'])){
-    $username = strip_tags($_POST['mail']);
+    $username = $_POST['mail'];
     $password = $_POST['mdp'];
-    
+    connexion($bdd->connexion, $username, $password);
 }
 $url = "https://www.google.com/recaptcha/api/siteverify?secret=6LehoFMiAAAAAKxB97Wjry-mpDY3FFhmvAQ4FZr0}";
 if(function_exists('curl_version')){

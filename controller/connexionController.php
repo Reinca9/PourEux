@@ -1,7 +1,10 @@
-<?php function connexion($bdd, $username, $password){
+<?php 
+require_once('../config/Database.php');
 
-if(isset($_POST['identifiant'])){
-$username = strip_tags($_POST['identifiant']); 
+
+function connexion($bdd, $username, $password){
+if(isset($_POST['mail'])){  
+$username = strip_tags($_POST['mail']); 
 $password = ($_POST['mdp']);
 
 $userstr = 'SELECT * FROM user WHERE email_user=:email_user';
@@ -10,56 +13,30 @@ $userquery->bindValue(':email_user', $username, PDO::PARAM_STR);
 $userquery->execute();
 $bdduser = $userquery->fetch();
 if ( $bdduser == false){
-echo 'identifiant inexistant';
-
-
-}
+echo '<div id="idInexistant">Identifiant inexistant</div>';
+ }
 else {
-$passwordHash = $bdduser['mdp'];
-$password = password_verify($password, $passwordHash);
+$password = password_verify($password, $bdduser['mdp_user']);
 
   if ($password ==  true ){
-  echo 'connecté';
-
-  $_SESSION['ID_role']= $bdduser['ID_role'];
+   echo '<div id="vousEtesConnecté">Connecté</div>';
   $_SESSION['identifiant'] = $username;
   $_SESSION ['mdp'] =  $password;
   header('Location:index.php');
-  }
-  else{
-echo 'mot de passe invalide';
+  }else{
+    echo '<div id="mdpInexistant">Mot de passe invalide</div>';
 
 
-  }
+        }
 
-  }
-
-}
-     
-        
-}
-else {
-$passwordHash = $bdduser['mdp'];
-$password = password_verify($password, $passwordHash);
-
-  if ($password ==  true ){
-  echo 'connecté';
-
-  $_SESSION['ID_role']= $bdduser['ID_role'];
-  $_SESSION['id'] = $id;
-  $_SESSION ['mdp'] =  $password;
-  header('Location:index.php');
-  }
-  else{
-echo 'mot de passe invalide';
-
-
+      }
+  
     }
-
-   }
-
   }
+
      
+      
+
         
-}
+
 ?>

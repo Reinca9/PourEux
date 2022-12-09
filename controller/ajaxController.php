@@ -1,5 +1,5 @@
 <?php
-require('../model/config/Database.php');
+require('../config/Database.php');
 require('../model/villeModel.php');
 
 $bdd = new Database('exemple_panier', 'root', '', 'localhost');
