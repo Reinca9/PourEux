@@ -4,11 +4,9 @@
       font-weight: normal;
       src: local('Kollektif Regular'), url('Kollektif.woff') format('woff');
   }
-:root{
-    font-family: 'Kollektif Regular';
-}
 *{
     box-sizing: border-box;
+    font-family: Arial;
 }
 body{
     width: 100%;
@@ -53,7 +51,6 @@ nav{
 nav a {
     text-decoration: none;
     color: rgb(251, 188, 88);
-    font-family: 'Kollektif Regular';
     margin-right: 2%;
     font-size: 120%;
 
@@ -86,7 +83,6 @@ nav a {
 #sideheader a{
     color:white;
     margin-right: 5%;
-    font-family: 'Kollektif Regular';
     margin-top: 2%;
     
 }
@@ -136,7 +132,6 @@ nav a {
 #sideheader2 a {
     color: white;
     margin-right: 5%;
-    font-family: 'Kollektif Regular';
     margin-top: 2%;
 
 }
@@ -176,7 +171,6 @@ ol.carousel-indicators li{
     margin-bottom: 5%;
 }
 #textcarousel h5{
-font-family: 'Kollektif Regular';
 font-size: 500%;
 
 }
@@ -198,7 +192,6 @@ font-size: 500%;
 }
 #divinfo h2{
     color: white;
-    font-family: 'Kollektif Regular'; 
     font-size: 150%;   
     margin-left: 25%;
     margin-top: 3%;
@@ -254,7 +247,6 @@ flex-direction: column;
 }
 #divsection section div p{
     color: white;
-    font-family: 'Kollektif Regular';
     display: flex;
     margin-left: 10%;
 }
@@ -286,7 +278,6 @@ flex-direction: column;
 }
 #actu h3{
     color: white;
-    font-family: 'Kollektif Regular';
 }
 #actu hr{
     color: white;
@@ -297,7 +288,6 @@ flex-direction: column;
 }
 #actu p{
     color: white;
-    font-family: 'Kollektif Regular';
     font-size: 80%;
 }
 #actu button{
@@ -308,7 +298,6 @@ flex-direction: column;
     width: 33%;
     padding: 2%;
     color: white;
-    font-family: 'Kollektif Regular';
     margin-left: 33%;
 }
 #divcompteur{
@@ -330,7 +319,6 @@ flex-direction: column;
     border-radius: 0%;
     color: rgb(81, 81, 81);
     justify-content: space-around;
-    font-family: 'Kollektif Regular';
     font-size: 80%;
     justify-content: center;
 
@@ -344,18 +332,15 @@ flex-direction: column;
 }
 #section-stats h3{
     font-size: 250%;
-    font-family: 'Kollektif Regular';
     margin-left: 33%;
     margin-top: -4%;
 
 }
 #section-stats p{
-    font-family: 'Kollektif Regular';
     margin-left: 33%;
     font-size: 80%;
 }
 #section-stats2 #text1{
-    font-family: 'Kollektif Regular';
     font-size: 150%;
     width: 40%;
     margin-left: 5%;
@@ -369,7 +354,6 @@ flex-direction: column;
     margin-right: 5%;
 }
 #section-stats2 #text2{
-    font-family: 'Kollektif Regular';
     width: 40%;
     margin-top: 5%;
     font-size: 120%;
@@ -387,7 +371,6 @@ footer div hr{
 footer div a{
     text-decoration: none;
     color: rgb(119, 119, 119);
-    font-family: 'Kollektif Regular';
 }
 footer{
     height: 100px;
@@ -579,7 +562,6 @@ margin-right: 4%;
 #leCollectifArticle{
     margin-top: 15%;
     color: rgb(119, 119, 119);
-    font-family: 'Kollektif Regular';
     width: 45%;
 }
 #leCollectifHr{
@@ -684,7 +666,6 @@ padding-right: 2%;
 #articlesChartePEux{
     width: 50%;
     margin: 0% 3% 0% 3%;
-    font-family: 'Kollektif Regular';
     font-style: normal;
     font-weight: normal;
     background-color: white;
@@ -790,7 +771,6 @@ padding-right: 2%;
 
 .datepicker label {
     display: block;
-    font-family: 'Kollektif Regular';
     font-weight: bold;
 }
 
@@ -1034,7 +1014,6 @@ flex-direction: column;
 }
 #deposerPanierTitle{
     color: white;
-    font-family: 'Kollektif Regular';
 }
 #deposerPanierDiv{
     background-color: rgb(13, 129, 153);
@@ -1085,9 +1064,7 @@ flex-direction: column;
 .inputDeclareTime{
     margin-top: 1%;
 }
-#myDatepicker{
-    display: flex;
-}
+
 #textAreaDiv{
     display: flex;
     flex-direction: column;
@@ -1138,7 +1115,6 @@ margin-left: 20%;
     display: flex;
     flex-direction: column;
     width: 50%;
-    font-family: 'Kollektif Regular';
     justify-content: center;
     margin-left: 15%;
     margin-top: 5%;
@@ -1177,7 +1153,6 @@ margin-left: 20%;
     width: 80%;
     margin-top: 2%;
     color: white;
-    font-family: 'Kollektif Regular';
 }
 #mainLivraison{
     background-color: rgb(13, 129, 153);
@@ -1197,7 +1172,7 @@ margin-left: 20%;
 }
 #listePaniersDiv h1{
     color: white;
-    font-family: 'Kollektif Regular';
+
     font-size: 200%;
     margin-bottom: 20%;
     margin-top: 5%;
@@ -1214,7 +1189,7 @@ margin-left: 20%;
 }
 #listeBouclePaniers{
     color: white;
-    font-family: 'Kollektif Regular';
+
 }
 #flexDivLivraison{
     display: flex;
@@ -1228,12 +1203,10 @@ display: flex;
 }
 #listeLivraisonsDiv h2{
     color: white;
-        font-family: 'Kollektif Regular';
         margin-bottom: 10%;
 }
 #listeLivraisonsDiv span{
     color: white;
-    font-family: 'Kollektif Regular';
     align-items: left;
     
 }
@@ -1259,7 +1232,6 @@ display: flex;
     margin-top: 35%;
     margin-left: 35%;
     font-style: bold;
-    font-family: 'Kollektif Regular';
     font-size: 150%;
 }
 #mdpInexistant{
@@ -1268,7 +1240,6 @@ display: flex;
     margin-top: 35%;
     margin-left: 35%;
     font-style: bold;
-    font-family: 'Kollektif Regular';
     font-size: 150%;
 }
 #vousEtesConnecté{
@@ -1277,6 +1248,5 @@ display: flex;
     margin-top: 35%;
     margin-left: 35%;
     font-style: bold;
-    font-family: 'Kollektif Regular';
     font-size: 150%;
 }

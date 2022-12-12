@@ -4,10 +4,7 @@ require('header2.php');
 
 if(isset($_POST['nom'])){
     inscription($bdd->connexion, $_POST);   
-    if(empty($_POST['recaptcha-response'])){
-        echo '<div>  remplir le captcha </div>';
-        
-    };
+    
   
 }
 $url = "https://www.google.com/recaptcha/api/siteverify?secret=6LehoFMiAAAAAKxB97Wjry-mpDY3FFhmvAQ4FZr0}";
