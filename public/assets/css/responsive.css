@@ -1,9 +1,72 @@
-@media screen (max-width:1024px){
-
+@media only screen and (max-width:1200px){
+nav{
+display:flex;
+margin-top: 0%;
+width: 100%;
+height: 100vh;
+margin-left: 0%;
 }
-@media screen (max-width:768px){
-
+.pages{
+display: flex;
+width: 110%;
+height: 100vh;
+margin-left: 0%;
+justify-content: center;
+align-items: center;
+display: none;
+transition: all 0.5s ease;
+background-color: rgba(251, 251, 251, 0.388);
+backdrop-filter: blur(7px);
 }
-@media screen (max-width:480px){
+#pagesAll{
+justify-content: center;
+align-items: center;
+}
+#pagesAll a{
+    display: flex;
+    flex-direction: column;
+    color: rgb(251, 188, 88);
+    font-weight: bold;
+    padding: 1%;
+}
+#pagesAll a:hover{
+    border: rgb(251, 188, 88) solid 2px;
+    border-radius: 10px;
     
+}
+#logo{
+position: absolute;
+top: 20px;
+left: 80px;
+width: 90px;
+height: 90px;
+}
+#menuBurger {
+    width: 35px;
+    position: absolute;
+    top: 35px;
+    right: 35px;
+    display: block;
+}
+.mobile-menu{
+    display: inline-flex;
+}
+#nav2{
+visibility: hidden;
+}
+
+#sideheader{
+    visibility: hidden;
+}
+ol.carousel-indicators{
+    display: none;
+}
+}
+
+@media only screen and (max-width:700px){
+
+}
+@media only screen and (max-width:480px){
+
+
 }

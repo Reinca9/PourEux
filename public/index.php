@@ -59,6 +59,9 @@ DEFAULT CHARACTER SET utf32_general_ci COLLATE `utf8mb4_unicode_ci` ENGINE = Inn
         case 'livraison':
             include('../vue/livraison.php');
             break;
+        case 'charte':
+            include('../vue/charte.php');
+            break;
         default:
             include('../vue/accueil.php');
         }

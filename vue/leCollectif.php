@@ -43,7 +43,7 @@ include('header2.php')
 </div>
 <article id="fondCouleurArticle">
     <div id="divChartePEux">
-        <img id="chartePourEux" src="./assets\img\Charte pour eux.png" alt="">
+        <img id="chartePourEux" src="./assets\img\charte.png" alt="">
     </div>
     <div id="articlesChartePEux">
         <h1>Nos engagements</h1>
