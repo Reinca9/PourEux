@@ -19,7 +19,7 @@ header{
     display: flex;
     width: 100%;
     height: 130px;
-        position: fixed;
+    position: fixed;
 }
 
 #logo{
@@ -32,7 +32,7 @@ header{
 #logo2{
     width: 130px;
     height: 130px;
-      margin-right: 2%;
+      margin-right:2%;
 }
 #hreflogo1:hover{
     border-bottom: none;
@@ -52,6 +52,7 @@ nav{
 }
 #pages1{
     margin-left: -5%;
+    border-image-width: 100%;
 
 }
 nav a {
@@ -103,17 +104,14 @@ nav a {
 }
 
 #pages2{
-    margin-left: 0%;
-    width: 70%;
-    margin-top: 3%;
-    margin-left: 1%;
+margin-left: -5%;
+    border-image-width: 100%;
     
 }
-#nav2{
+.pagesAll2{
     width: 100%;
-    display: flex;
-    margin-left: 0%;
 }
+
 #nav2 a{
     color: white;
     text-decoration: none;
@@ -122,8 +120,9 @@ nav a {
     color: rgb(13, 129, 153);
 }
 #sideheader2{
-    display: flex;
-    width: 30%;    
+display: flex;
+    margin-left: 69%;
+    margin-top: -9%;
 }
 #sideheader2 i {
     color: white;
@@ -192,7 +191,7 @@ font-size: 500%;
     display: flex;
     
 }
-#divinfo h2{
+#divinfo h1{
     color: white;
     font-size: 150%;   
     margin-left: 25%;
@@ -450,7 +449,10 @@ width: 80%;
     width: 100%;
     
 }
-
+.seConnecterMobile{
+    visibility: hidden;
+    display: none;
+}
 #jeMinscris{
     background-color: rgb(251, 188, 88);
     color: white;
@@ -1267,11 +1269,6 @@ display: flex;
 .h1{
     display: none;
 }
-#menuBurger{
-    font-size:300%;
-    position: absolute;
-    top: 50px;
-    right: 50px;
-    display: none;
-    color: rgb(255, 255, 255);
+.menuBurger{
+display: none;
 }

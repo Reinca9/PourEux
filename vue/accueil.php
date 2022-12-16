@@ -36,7 +36,7 @@
         </div>
     </div>
     <div id="divinfo">
-        <h2>Information importante : les livraisons auront lieu LUNDI et JEUDI</h2>
+        <h1>Information importante : les livraisons auront lieu LUNDI et JEUDI</h2>
 
     </div>
     <div id="divsection">

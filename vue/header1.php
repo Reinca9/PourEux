@@ -2,13 +2,15 @@
   <header id="header1">
 
       <nav id="nav1">
-
+        
           <div id="pages1" class="pages">
             <div id="pagesAll">
-              <a id="hreflogo1"href="index.php?page=accueil"><img id="logo" src="assets/img/PourEuxNancySVG.svg" alt="logo"></a>
+              <a id="hreflogo1"href="index.php?page=accueil">
+                <img id="logo" class="logoMobile" src="assets/img/PourEuxNancySVG.svg" alt="logo"></a>
               <a class="ahover"href="index.php?page=accueil">Accueil</a>
               <a class="ahover"href="index.php?page=leCollectif">Le collectif</a>
               <a class="ahover"href="index.php?page=signin">Nous rejoindre</a>
+              <a class="ahover seConnecterMobile"href="index.php?page=signin">Se connecter</a>
               <a class="ahover"href="index.php?page=actualités">Actualités</a>
               <a class="ahover"href="index.php?page=deposerPanier">Paniers Repas</a>
               <a class="ahover"href="index.php?page=livraison">Livraisons</a>
@@ -25,6 +27,6 @@
         
       </nav>
            
-      <i id="menuBurger" class="fa-solid fa-bars"></i>
+      <i  class="fa-solid fa-bars menuBurger"></i>
       
   </header>

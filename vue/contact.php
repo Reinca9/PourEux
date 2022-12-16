@@ -21,7 +21,7 @@ include('header2.php');
             <span><i class="fa-solid fa-mobile contactIcons contactPhoneIcon"></i> 06 xx xx xx xx</span>
             <div id="formContact">
                 <span>
-                    <input id=" contactName" type=" text" placeholder="Votre nom">
+                    <input id="contactName" type=" text" placeholder="Votre nom">
                     <input id="contactEmail" type="email" placeholder="Votre email">
                 </span>
                 <textarea name="" id="contactTA" cols="30" rows="10" placeholder="Tapez votre message ici"></textarea>
