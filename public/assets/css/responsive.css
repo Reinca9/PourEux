@@ -8,9 +8,9 @@ margin-left: 0%;
 }
 .pages{
 display: flex;
-width: 110%;
+width: 150%;
 height: 100vh;
-margin-left: 0%;
+margin-left: -10%;
 justify-content: center;
 align-items: center;
 display: none;
@@ -19,19 +19,31 @@ background-color: rgba(251, 251, 251, 0.322);
 backdrop-filter: blur(7px);
 
 }
+#pages1{
+    margin-left: -15%;
+}
+.pages1Only{
+    margin-left: -10%;
+}
 #pagesAll{
 justify-content: center;
 align-items: center;
+border-bottom: 0px solid black;
+}
+#logo{
+    margin-left: 7%;
 }
 #pagesAll a{
     display: flex;
     flex-direction: column;
     color: rgb(251, 188, 88);
     font-weight: bold;
-    padding: 1%;
+    padding: 1px;
 }
 .pagesAll2{
-    margin-left: 45%;
+    margin-left: 70%;
+    justify-content: center;
+    align-items: center;
 }
 .logoMobile{
 position: absolute;
@@ -46,10 +58,11 @@ height: 90px;
     font-size: 300%;
     top: 30px;
     right: 200px;
-    color: rgb(0, 0, 0);
+    color: rgb(13, 129, 153);
 }
 .mobile-menu{
-    display: inline-flex;
+    display: flex;
+    flex-direction: column;
 }
 
 #sideheader, #sideheader2{
@@ -68,9 +81,7 @@ ol.carousel-indicators{
         margin-top: 10%;
     }
     #loginLogoSvgInscription {
-        width: 250px;
-        height: 250px;
-        margin-top: 5%;
+        display: none;
     }
     #connexionContainer {
         background-color: rgb(13, 129, 153);

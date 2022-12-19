@@ -4,7 +4,7 @@
       <nav id="nav1">
         
           <div id="pages1" class="pages">
-            <div id="pagesAll">
+            <div id="pagesAll" class="pages1Only">
               <a id="hreflogo1"href="index.php?page=accueil">
                 <img id="logo" class="logoMobile" src="assets/img/PourEuxNancySVG.svg" alt="logo"></a>
               <a class="ahover"href="index.php?page=accueil">Accueil</a>
@@ -15,6 +15,8 @@
               <a class="ahover"href="index.php?page=deposerPanier">Paniers Repas</a>
               <a class="ahover"href="index.php?page=livraison">Livraisons</a>
               <a class="ahover"href="index.php?page=contact">Contact</a>
+              <?php showAdminPanel($bdd) ?>
+            
               </div>
           </div>
 

@@ -14,6 +14,7 @@
               <a href="index.php?page=deposerPanier">Paniers Repas</a>
               <a href="index.php?page=livraison">Livraisons</a>
               <a href="index.php?page=contact">Contact</a>
+              <?php showAdminPanel($bdd) ?>
             </div>
           </div>
 
