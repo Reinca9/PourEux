@@ -6,9 +6,8 @@ $bdd = new Database('poureuxbdd', 'root', '', 'localhost');
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8">  
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pour Eux Nancy</title>
@@ -29,45 +28,16 @@ $bdd = new Database('poureuxbdd', 'root', '', 'localhost');
         <?php
       if(isset($_GET['page'])){
         switch($_GET['page']){
-
-
-        case 'signin':
-            include('../vue/inscription.php');
-            break;
-        case 'accueil':
-            include('../vue/accueil.php');
-            break;
-        case 'login':
-            include('../vue/connexion.php');
-            break;
-        case 'leCollectif':
-            include('../vue/leCollectif.php');
-            break;
-        case 'actualités':
-            include('../vue/actualites.php');
-            break;
-        case 'deposerPanier':
-            include('../vue/deposerPanier.php');
-            break;
-        case 'contact':
-            include('../vue/contact.php');
-            break;
-        case 'livraison':
-            include('../vue/livraison.php');
-            break;
-        case 'charte':
-            include('../vue/charte.php');
-            break;
-        case 'session':
-            include('../vue/session.php');
-            break;
-        default:
-            include('../vue/accueil.php');
+            case 'defaultAdmin':
+                include('allUsers.php');
+                break;
+                default:
+            include('allUsers.php');
         }
       } else {
-        include('../vue/accueil.php');
-      }
-
+        include('allUsers.php');
+}
+    
     ?>
     </main>
     <?php

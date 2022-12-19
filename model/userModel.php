@@ -83,3 +83,10 @@ function getVilleByNom($bdd, $nom)
   $bddarray = $userquery->fetchAll();
   return $bddarray;
 }
+function deposerRepas($bdd, $id){
+  if(isset($_SESSION['identifiant'])){
+
+  }else{
+    header('Location:index.php?page=login');
+  }
+}

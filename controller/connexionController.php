@@ -35,6 +35,19 @@ $password = password_verify($password, $passwordVerif);
     }
   } 
   //  <?php showAdminPanel($bdd, $id, $password) 
+function selectConnectedUser(PDO $bdd,string $username){
+  if(isset($_SESSION['identifiant'])){
+  $userMail = strip_tags($_SESSION['identifiant']);
+  $userstr = "SELECT * FROM user WHERE email_user = '$userMail'";
+  $userquery = $bdd->prepare($userstr);
+  $userquery->bindValue(':email_user', $username, PDO::PARAM_INT);
+  $userquery->execute();
+  $bdduser = $userquery->fetch();
+  $loggedInUserId = $bdduser['id_user'];
+  return $loggedInUserId;
+
+  }
+}
 function showAdminPanel(PDO $bdd, $username){
   if(isset($_SESSION['identifiant'])){
   $userMail = strip_tags($_SESSION['identifiant']);
@@ -51,7 +64,7 @@ function showAdminPanel(PDO $bdd, $username){
   $query->execute();
   $role = $query->fetch();
       if($role['id_role_user_role'] == 3){
-        echo'<a id="adminPanel" href="index.php?page=adminPanel">Admin Panel</a>';
+        echo'<a id="adminPanel" href="adminIndex.php?page=allUsers">Gestion administrateur</a>';
       }else{
         echo'<p>TEST</p>';
       }
