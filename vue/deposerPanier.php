@@ -8,19 +8,13 @@
     <title>Document</title>
 </head>
 <?php 
-// require('header2.php');
 require_once('../model/paniersModel.php');
 require_once('../model/userModel.php');
-require_once('../config/Database.php');
-
-
-                  
 $userid = $_SESSION['identifiant'];
 $loggedInUserId = "SELECT id_user FROM user WHERE email_user ='$userid'";
 $queryStr = "SELECT*FROM repas WHERE id_user_cuisinier = '$loggedInUserId'";
-
-$query = $bdd->prepare($queryStr);
-  $query->bindValue(':id', $id, PDO::PARAM_INT);
+$query = $bdd->connexion->prepare($queryStr);
+  $query->bindValue(':id', $userid, PDO::PARAM_INT);
   $query->execute();
   $result = $query->fetch();
 

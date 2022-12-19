@@ -1,3 +1,7 @@
+      <?php require_once('../controller/connexionController.php');  
+ 
+      
+  ?>
     <script defer type="text/javascript" src="../public/assets/js/menuBurger.js"></script>
   <header id="header2">
 
@@ -14,16 +18,15 @@
               <a href="index.php?page=deposerPanier">Paniers Repas</a>
               <a href="index.php?page=livraison">Livraisons</a>
               <a href="index.php?page=contact">Contact</a>
-              <?php showAdminPanel($bdd) ?>
             </div>
           </div>
 
           <div id="sideheader2">
-              <i id="connexion" class="fa-solid fa-user"></i>
-              <a href="index.php?page=login">Connexion</a>
-              <a id="inscription" href="index.php?page=signin">Inscription</a>
+           <?php hideSideBarWhenConnected2(); ?>
               <a href="https://www.instagram.com/poureuxnancy/?hl=en"><i id="instalogo" class="fa-brands fa-instagram" href="https://www.instagram.com/poureuxnancy/?hl=fr"></i></a>
               <a href="https://www.facebook.com/groups/832655407231327/"><i id="fblogo" class="fa-brands fa-facebook" href="https://www.facebook.com/groups/832655407231327"></i></a>
+
+              
       </nav>
 
       <i class="fa-solid fa-bars menuBurger"></i>

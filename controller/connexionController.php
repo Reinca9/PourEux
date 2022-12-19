@@ -23,7 +23,7 @@ $password = password_verify($password, $passwordVerif);
    echo '<div id="vousEtesConnecté">Connecté</div>';
   $_SESSION['identifiant'] = $username;
   $_SESSION ['mdp'] =  $password;
-  header('Location:index.php');
+  header('Location:index.php?page=leCollectif');
   }else{
     echo '<div id="mdpInexistant">Mot de passe invalide</div>';
 
@@ -34,7 +34,8 @@ $password = password_verify($password, $passwordVerif);
   
     }
   }
-function showAdminPanel(PDO $bdd){
+  //  <?php showAdminPanel($bdd, $id, $password) 
+function showAdminPanel(PDO $bdd, $id, $password){
   if(isset($_SESSION['identifiant'])){
   $userMail = strip_tags($_POST['mail']);
   $userstr = 'SELECT * FROM user WHERE email_user=:email_user';
@@ -57,7 +58,34 @@ function showAdminPanel(PDO $bdd){
   
      
 }
-     
+function hideSideBarWhenConnected1(){
+  if(isset($_SESSION['identifiant'])){
+    echo '<div class="coEtDecoDiv">;
+     <p id="Connecté">Vous êtes connecté</p>
+    <a id="seDeco1" href="index.php?page=session">Se deconnecter</a>
+    </div>';  
+    }else{
+    echo '<i id="connexion" class="fa-solid fa-user"></i>
+              <a id="connexionTxt" href="index.php?page=login">Connexion</a>
+              <a id="inscription" href="index.php?page=signin">Inscription</a>';
+    
+    }
+}
+
+function hideSideBarWhenConnected2(){
+  if(isset($_SESSION['identifiant'])){
+    echo'<div class="coEtDecoDiv2"> 
+     <p id="Connecté">Vous êtes connecté</p>
+    <a id="seDeco" href="index.php?page=session">Se deconnecter</a>
+    </div>';
+  }else{
+    echo '<i id="connexion" class="fa-solid fa-user"></i>
+              <a href="index.php?page=login">Connexion</a>
+              <a id="inscription" href="index.php?page=signin">Inscription</a>';
+  }
+  
+}
+    
       
 
         

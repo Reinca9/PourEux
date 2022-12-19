@@ -1270,3 +1270,28 @@ display: flex;
 .menuBurger{
 display: none;
 }
+#Connecté{
+    color: red;
+    font-weight: bold;
+}
+#seDeco{
+        color: rgb(20, 20, 20);
+        font-weight: bold;
+}
+#seDeco1{
+    color: rgb(251, 188, 88);
+    font-weight: bold;
+}
+.coEtDecoDiv{
+    display: flex;
+    flex-direction: column;
+top: 1%;
+right: 1%;
+position: absolute;
+}.coEtDecoDiv2{
+    display: flex;
+    flex-direction: column;
+    top: 19%;
+    right: 1%;
+    position: absolute;
+}

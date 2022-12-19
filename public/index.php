@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require('../config/Database.php');
+require_once('../config/Database.php');
 $bdd = new Database('poureuxbdd', 'root', '', 'localhost');
 
 'CREATE TABLE user (id_user INT AUTO_INCREMENT NOT NULL, prenom_user VARCHAR(255) NOT NULL, nom_user VARCHAR(255) NOT NULL 
@@ -61,6 +61,9 @@ DEFAULT CHARACTER SET utf32_general_ci COLLATE `utf8mb4_unicode_ci` ENGINE = Inn
             break;
         case 'charte':
             include('../vue/charte.php');
+            break;
+        case 'session':
+            include('../vue/session.php');
             break;
         default:
             include('../vue/accueil.php');
