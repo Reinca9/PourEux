@@ -3,8 +3,39 @@ nav{
 display:flex;
 margin-top: 0%;
 width: 100%;
-height: 100vh;
+height: 30vh;
 margin-left: 0%;
+}
+#Connecté {
+    color: red;
+    font-weight: bold;
+}
+
+#seDeco {
+    color: rgb(20, 20, 20);
+    font-weight: bold;
+}
+
+#seDeco1 {
+    color: rgb(251, 188, 88);
+    font-weight: bold;
+}
+
+.coEtDecoDiv {
+    display: flex;
+    flex-direction: column;
+    top: 1%;
+    right: 1%;
+    position: absolute;
+}
+
+.coEtDecoDiv2 {
+
+    display: flex;
+    flex-direction: column;
+    top: 19%;
+    right: 1%;
+    position: absolute;
 }
 .pages{
 display: flex;
@@ -65,9 +96,6 @@ height: 90px;
     flex-direction: column;
 }
 
-#sideheader, #sideheader2{
-    visibility: hidden;
-}
 ol.carousel-indicators{
     display: none;
     }
@@ -87,10 +115,10 @@ ol.carousel-indicators{
         background-color: rgb(13, 129, 153);
         width: 60%;
         border-radius: 30px;
-        height: 100vh;
+        height: 85vh;
         margin-left: 20%;
         display: flex;
-        margin-top: 10%;
+        margin-top: 20%;
         justify-content: left;
         align-items: left;
         flex-wrap: nowrap;

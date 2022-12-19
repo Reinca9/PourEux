@@ -13,7 +13,7 @@
               <a href="index.php?page=accueil">Accueil</a>
               <a href="index.php?page=leCollectif">Le collectif</a>
               <a href="index.php?page=signin">Nous rejoindre</a>
-              <a class="ahover seConnecterMobile"href="index.php?page=signin">Se connecter</a>
+              <a class="ahover seConnecterMobile"href="index.php?page=login">Se connecter</a>
               <a href="index.php?page=actualités">Actualités</a>
               <a href="index.php?page=deposerPanier">Paniers Repas</a>
               <a href="index.php?page=livraison">Livraisons</a>
@@ -26,9 +26,9 @@
               <a href="https://www.instagram.com/poureuxnancy/?hl=en"><i id="instalogo" class="fa-brands fa-instagram" href="https://www.instagram.com/poureuxnancy/?hl=fr"></i></a>
               <a href="https://www.facebook.com/groups/832655407231327/"><i id="fblogo" class="fa-brands fa-facebook" href="https://www.facebook.com/groups/832655407231327"></i></a>
 
-              
-      </nav>
 
+      </nav>
+   <?php        showAdminPanel($bdd->connexion, $_SESSION); ?>
       <i class="fa-solid fa-bars menuBurger"></i>
       
   </header>

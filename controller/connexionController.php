@@ -33,27 +33,28 @@ $password = password_verify($password, $passwordVerif);
       }
   
     }
-  }
+  } 
   //  <?php showAdminPanel($bdd, $id, $password) 
-function showAdminPanel(PDO $bdd, $id, $password){
+function showAdminPanel(PDO $bdd, $username){
   if(isset($_SESSION['identifiant'])){
-  $userMail = strip_tags($_POST['mail']);
-  $userstr = 'SELECT * FROM user WHERE email_user=:email_user';
+  $userMail = strip_tags($_SESSION['identifiant']);
+
+  $userstr = "SELECT * FROM user WHERE email_user = '$userMail'";
   $userquery = $bdd->prepare($userstr);
-  $userquery->bindValue(':email_user', $username, PDO::PARAM_STR);
+  $userquery->bindValue(':email_user', $username, PDO::PARAM_INT);
   $userquery->execute();
   $bdduser = $userquery->fetch();
-  $role = 'SELECT id_user_user_role FROM user_role INNER JOIN user WHERE user.id_user = :a';
+  $idUser = $bdduser['id_user'];
+  $role = "SELECT id_role_user_role FROM user_role  WHERE  id_user_user_role = '$idUser'";
   $query = $bdd->prepare($role);
-  $query->bindValue(':roleUser', $$roleUser, PDO::PARAM_INT);
+  $query->bindValue(':role', $role, PDO::PARAM_INT);
   $query->execute();
-  $query = $roleQuery->fetch();
-    if($bdduser = true){
-      if($roleQuery['id_role_user_role'] = 3){
+  $role = $query->fetch();
+      if($role['id_role_user_role'] == 3){
         echo'<a id="adminPanel" href="index.php?page=adminPanel">Admin Panel</a>';
+      }else{
+        echo'<p>TEST</p>';
       }
-    }
-    
   }
   
      

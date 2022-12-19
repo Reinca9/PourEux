@@ -1250,14 +1250,7 @@ display: flex;
     font-style: bold;
     font-size: 150%;
 }
-#vousEtesConnecté{
-    position: absolute;
-    color: red;
-    margin-top: 35%;
-    margin-left: 35%;
-    font-style: bold;
-    font-size: 150%;
-}
+
 #charte{
     width: 50%;
     margin-top: 10%;
@@ -1294,4 +1287,12 @@ position: absolute;
     top: 19%;
     right: 1%;
     position: absolute;
+}
+#adminPanel{
+    position: absolute;
+    right: 15%;
+    top: 70%;
+    color: red;
+    font-weight: bold;
+    text-decoration: none;
 }
