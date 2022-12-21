@@ -8,14 +8,16 @@
     <title>Document</title>
 </head>
 <?php 
-// include('header2.php');
+include('header2.php');
 require_once('../model/paniersModel.php');
 require_once('../model/userModel.php');
 require_once('../controller/connexionController.php');
 require_once('../config/Database.php');
 require_once('../controller/panierController.php');
-    
-                ?>
+$repas = getRepasById($bdd->connexion);    
+updateRepas($bdd->connexion);    
+$loggedInUserId = selectConnectedUser($bdd->connexion,$_SESSION['identifiant']);       
+ ?>
 
           
 <body>
@@ -51,19 +53,28 @@ require_once('../controller/panierController.php');
     <div id="vosPanierRepasDiv">
         <h2>Vos paniers repas déclarés</h2>
         <div class="selectPanierGroup">
-            <form action="POST">
-                
-                    <input type="text" value="<?php echo $result['repas_statut'] ?>"/>
+            <?php  $loggedInUserId = selectConnectedUser($bdd->connexion, $_SESSION['identifiant']);
+            foreach($repas as $repasUser){
+                if($repas['id_user_cuisinier'] == $loggedInUserId){
+                  ?>
+             <form id="updateform" method="POST" action="">
+        <input class="updateinput" type="text" name="heureModify" placeholder="Heure dispo" value="<?php echo $repas['hrdispo_repas'] ?>"
+            required />
+        <input class="updateinput" type="text" name="repas_statut" value="<?php echo $repas['repas_statut'] ?>"
+            placeholder="Statut du repas" required />
+        <input class="updateinput" type="text" name="messageModify" value="<?php echo $repas['message_depot'] ?>"
+            placeholder="Descritption du repas" required />
+       
+                    
+        <button name="modifierRepas"id="buttonModifierPanier">Modifier</button>
+         <?php deleteRepas($bdd->connexion, $loggedInUserId); ?>
+        <button name="supprimerRepas" id="buttonSupprimerRepas">Supprimer</button>
+    </form>
+  <?php 
 
-
-                
-
-
-
-
-            </form>
+} }?>
         </div>
-        <button id="buttonModifierPanier">Modifier</button>
+        
     </div>
     <script type=" text/javascript" src="../public/assets/js/modifierPanier.js"></script>
 </body>

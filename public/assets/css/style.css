@@ -1095,11 +1095,27 @@ margin-left: 20%;
 #buttonModifierPanier {
     color: white;
     background-color: rgb(251, 188, 88);
-    border-radius: 10px;
-    width: 50%;
+    width: 20%;
     height: 40px;
     border: none;
-    margin-top: 5%;
+    margin-top: 0%;
+}
+#buttonSupprimerRepas{
+    color: white;
+        background-color: rgb(232, 65, 69);
+        width: 20%;
+        height: 40px;
+        border: none;
+        margin-top: 0%;
+}
+#repasSuppr{
+    position: absolute;
+    color: rgb(232, 65, 69);
+    margin-left: 60%;
+
+}
+#updateform{
+    display: flex;
 }
 #verifMail{
     color: rgb(255, 31, 31);

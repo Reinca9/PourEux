@@ -10,21 +10,32 @@ function getRepas(PDO $bdd){
         
     }
 }
-function getRepasById(PDO $bdd, $id){
-  $str = "SELECT*FROM repas INNER JOIN user ON user.id_user = repas.id_user_cuisinier WHERE id_repas = :id";
-  $query = $bdd->prepare($str);
-  $query->bindValue(':id', $id, PDO::PARAM_INT);
-  $query->execute();
-  $repas = $query->fetch();
-  return $repas;
-}
-function insertNewRepas(PDO $bdd, $hDepot,$loggedInUserId,$repasStatut,$mDepot ){
+function displayRepasById(PDO $bdd){
+    $repas = getRepasById($bdd);
+    $loggedInUserId = selectConnectedUser($bdd, $_SESSION['identifiant']);
+    
+    }
 
-        $queryStr = "INSERT INTO repas (hrdispo_repas, id_user_cuisinier, null, repas_statut, message_depot) VALUES (:hrdispo_repas, :id_user_cuisiner, null, :repas_statut, :message_depot)";
+function getRepasById(PDO $bdd){
+    if(isset($_SESSION['identifiant'])){
+        $loggedInUserId = selectConnectedUser($bdd, $_SESSION['identifiant']);
+        $str = "SELECT*FROM repas  WHERE id_user_cuisinier = '$loggedInUserId'";
+        $query = $bdd->prepare($str);
+        $query->bindValue(':id', $loggedInUserId, PDO::PARAM_INT);
+        $query->execute();
+        $repas = $query->fetch();
+        return $repas;
+            }else{
+                header('Location:index.php?page=login');
+            }
+        }
+function insertNewRepas(PDO $bdd, $hDepot,$loggedInUserId,$repasStatut,$mDepot){
+        $queryStr = "INSERT INTO repas (hrdispo_repas, id_user_cuisinier,id_user_livreur,repas_statut, message_depot) VALUES (:hrdispo_repas, :id_user_cuisiner,:id_user_livreur,:repas_statut, :message_depot)";
         $query = $bdd->prepare($queryStr);
         $query->bindValue(':hrdispo_repas', $hDepot, PDO::PARAM_STR);
-        $query->bindValue(':id_user_cuisinier', $loggedInUserId, PDO::PARAM_INT);
-        $query->bindValue(':disponible', $repasStatut, PDO::PARAM_STR);
+        $query->bindValue(':id_user_cuisiner', $loggedInUserId, PDO::PARAM_INT);
+        $query->bindValue(':id_user_livreur', $loggedInUserId, PDO::PARAM_INT);
+        $query->bindValue(':repas_statut', $repasStatut, PDO::PARAM_STR);
         $query->bindValue(':message_depot', $mDepot, PDO::PARAM_STR);
         $query->execute();
         }
