@@ -1,7 +1,7 @@
  <?php  function bouttonInsererRepas(PDO $bdd){
         if(isset($_POST['panierSubmit'])){ 
             if(isset($_SESSION['identifiant'])) {            
-                
+                $loggedInUserId = selectConnectedUser($bdd, $_SESSION['identifiant']);
                 $repasStatut = 'disponible';
                 $hDepot = $_POST['heureDispo'];
                 $mDepot = $_POST['messageDepot'];
@@ -15,13 +15,14 @@
         function deleteRepas($bdd, $loggedInUserId){
             if(isset($_SESSION['identifiant'])){
                 if(isset($_POST['supprimerRepas'])){
-            
                     $deleteQuery = "DELETE*FROM repas    WHERE id_user_cuisinier = '$loggedInUserId'";
                     $query = $bdd->prepare($deleteQuery);
                     $query->execute();
                     echo'<p id="repasSuppr">Repas supprimé</p>';
-                    }
+                 }
 
+        }else{
+             header('Location:index.php?page=login');
         }
 }
         function updateRepas($bdd){

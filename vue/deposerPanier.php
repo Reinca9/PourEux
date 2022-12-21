@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <?php 
-include('header2.php');
+// include('header2.php');
 require_once('../model/paniersModel.php');
 require_once('../model/userModel.php');
 require_once('../controller/connexionController.php');
@@ -21,7 +21,7 @@ $loggedInUserId = selectConnectedUser($bdd->connexion,$_SESSION['identifiant']);
 
           
 <body>
-    <div>empty content</div>
+    <div>.</div>
     <div id="deposerPanierDiv">
         <h1 id="deposerPanierTitle">Déposer un repas</h1>
         <div id=" myDatepicker" class="datepicker">
@@ -53,17 +53,17 @@ $loggedInUserId = selectConnectedUser($bdd->connexion,$_SESSION['identifiant']);
     <div id="vosPanierRepasDiv">
         <h2>Vos paniers repas déclarés</h2>
         <div class="selectPanierGroup">
-            <?php  $loggedInUserId = selectConnectedUser($bdd->connexion, $_SESSION['identifiant']);
-            foreach($repas as $repasUser){
-                if($repas['id_user_cuisinier'] == $loggedInUserId){
+            <?php  
+           foreach($repas as $repasUser){
                   ?>
              <form id="updateform" method="POST" action="">
         <input class="updateinput" type="text" name="heureModify" placeholder="Heure dispo" value="<?php echo $repas['hrdispo_repas'] ?>"
             required />
         <input class="updateinput" type="text" name="repas_statut" value="<?php echo $repas['repas_statut'] ?>"
             placeholder="Statut du repas" required />
-        <input class="updateinput" type="text" name="messageModify" value="<?php echo $repas['message_depot'] ?>"
-            placeholder="Descritption du repas" required />
+         <textarea name="messageDepot" form ="updateform"name=" messageDeclarerPanier" id="messageModify"
+                                cols="30" rows="10"
+                                placeholder="<?php echo $repas['message_depot'] ?>"></textarea >
        
                     
         <button name="modifierRepas"id="buttonModifierPanier">Modifier</button>
@@ -71,8 +71,8 @@ $loggedInUserId = selectConnectedUser($bdd->connexion,$_SESSION['identifiant']);
         <button name="supprimerRepas" id="buttonSupprimerRepas">Supprimer</button>
     </form>
   <?php 
-
-} }?>
+}
+ ?>
         </div>
         
     </div>

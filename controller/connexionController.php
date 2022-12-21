@@ -23,7 +23,7 @@ $password = password_verify($password, $passwordVerif);
    echo '<div id="vousEtesConnecté">Connecté</div>';
   $_SESSION['identifiant'] = $username;
   $_SESSION ['mdp'] =  $password;
-  header('Location:index.php?page=leCollectif');
+  header('Location:index.php?page=deposerPanier');
   }else{
     echo '<div id="mdpInexistant">Mot de passe invalide</div>';
 
@@ -34,7 +34,7 @@ $password = password_verify($password, $passwordVerif);
   
     }
   } 
-  //  <?php showAdminPanel($bdd, $id, $password) 
+
 function selectConnectedUser(PDO $bdd,string $username){
   if(isset($_SESSION['identifiant'])){
   $userMail = strip_tags($_SESSION['identifiant']);
@@ -65,8 +65,6 @@ function showAdminPanel(PDO $bdd, $username){
   $role = $query->fetch();
       if($role['id_role_user_role'] == 3){
         echo'<a id="adminPanel" href="adminIndex.php?page=allUsers">Gestion administrateur</a>';
-      }else{
-        echo'<p>TEST</p>';
       }
   }
   

@@ -21,11 +21,10 @@ function getRepasById(PDO $bdd){
         $loggedInUserId = selectConnectedUser($bdd, $_SESSION['identifiant']);
         $str = "SELECT*FROM repas  WHERE id_user_cuisinier = '$loggedInUserId'";
         $query = $bdd->prepare($str);
-        $query->bindValue(':id', $loggedInUserId, PDO::PARAM_INT);
-        $query->execute();
-        $repas = $query->fetch();
-        return $repas;
-            }else{
+        if($query->rowCount()>0){
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        }
+        }else{
                 header('Location:index.php?page=login');
             }
         }
