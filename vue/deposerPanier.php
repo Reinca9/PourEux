@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <?php 
-// include('header2.php');
+include('header2.php');
 require_once('../model/paniersModel.php');
 require_once('../model/userModel.php');
 require_once('../controller/connexionController.php');
@@ -36,7 +36,7 @@ $loggedInUserId = selectConnectedUser($bdd->connexion,$_SESSION['identifiant']);
                             </div>
                         </div>
                         <div id="textAreaDiv">
-                            <textarea name="messageDepot" form ="envoyerPanierForm"name=" messageDeclarerPanier"id="messageDeclarerPanier"
+                            <textarea name="messageDepot" form ="envoyerPanierForm"name=" messageDeclarerPanier" form="envoyerPanierForm" id="messageDeclarerPanier"
                                 cols="30" rows="10"
                                 placeholder="Description du repas, portions..."></textarea >
                                  <?php bouttonInsererRepas($bdd->connexion) ?>
@@ -63,7 +63,7 @@ $loggedInUserId = selectConnectedUser($bdd->connexion,$_SESSION['identifiant']);
             required />
         <input class="updateinput" type="text" name="repas_statut" value="<?php echo $repasUser2['repas_statut'] ?>"
             placeholder="Statut du repas" required />
-         <textarea name="messageDepot" form ="updateform" name="messageModify"
+         <textarea  form ="updateform"name="messageModify" id="messageModify"
                                 cols="30" rows="10"
                                 placeholder="<?php echo $repasUser2['message_depot'] ?>"></textarea >
        
