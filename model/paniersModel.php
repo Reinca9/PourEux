@@ -16,18 +16,21 @@ function displayRepasById(PDO $bdd){
     
     }
 
-function getRepasById(PDO $bdd){
+function getRepasById(PDO $bdd, $loggedInUserId){
     if(isset($_SESSION['identifiant'])){
         $loggedInUserId = selectConnectedUser($bdd, $_SESSION['identifiant']);
         $str = "SELECT*FROM repas  WHERE id_user_cuisinier = '$loggedInUserId'";
-        $query = $bdd->prepare($str);
-        if($query->rowCount()>0){
-            return $query->fetchAll(PDO::FETCH_ASSOC);
+        $repas = $bdd->query($str);
+        $repasUser = $repas->fetchAll();
+        if($repas->rowCount()>0){
+            return $repasUser;
         }
         }else{
-                header('Location:index.php?page=login');
+                echo "<div>Vous n'avez déclaré aucuns repas</div>";
             }
         }
+        
+      
 function insertNewRepas(PDO $bdd, $hDepot,$loggedInUserId,$repasStatut,$mDepot){
         $queryStr = "INSERT INTO repas (hrdispo_repas, id_user_cuisinier,id_user_livreur,repas_statut, message_depot) VALUES (:hrdispo_repas, :id_user_cuisiner,:id_user_livreur,:repas_statut, :message_depot)";
         $query = $bdd->prepare($queryStr);

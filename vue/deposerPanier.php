@@ -14,7 +14,7 @@ require_once('../model/userModel.php');
 require_once('../controller/connexionController.php');
 require_once('../config/Database.php');
 require_once('../controller/panierController.php');
-$repas = getRepasById($bdd->connexion);    
+
 updateRepas($bdd->connexion);    
 $loggedInUserId = selectConnectedUser($bdd->connexion,$_SESSION['identifiant']);       
  ?>
@@ -36,7 +36,7 @@ $loggedInUserId = selectConnectedUser($bdd->connexion,$_SESSION['identifiant']);
                             </div>
                         </div>
                         <div id="textAreaDiv">
-                            <textarea name="messageDepot" form ="envoyerPanierForm"name=" messageDeclarerPanier" form="envoyerPanierForm" id="messageDeclarerPanier"
+                            <textarea name="messageDepot" form ="envoyerPanierForm"name=" messageDeclarerPanier"id="messageDeclarerPanier"
                                 cols="30" rows="10"
                                 placeholder="Description du repas, portions..."></textarea >
                                  <?php bouttonInsererRepas($bdd->connexion) ?>
@@ -54,16 +54,18 @@ $loggedInUserId = selectConnectedUser($bdd->connexion,$_SESSION['identifiant']);
         <h2>Vos paniers repas déclarés</h2>
         <div class="selectPanierGroup">
             <?php  
-           foreach($repas as $repasUser){
+            
+            $repasUser = getRepasById($bdd->connexion, $loggedInUserId);   
+            foreach($repasUser as $repasUser2){
                   ?>
              <form id="updateform" method="POST" action="">
-        <input class="updateinput" type="text" name="heureModify" placeholder="Heure dispo" value="<?php echo $repas['hrdispo_repas'] ?>"
+        <input class="updateinput" type="text" name="heureModify" placeholder="Heure dispo" value="<?php echo $repasUser2['hrdispo_repas'] ?>"
             required />
-        <input class="updateinput" type="text" name="repas_statut" value="<?php echo $repas['repas_statut'] ?>"
+        <input class="updateinput" type="text" name="repas_statut" value="<?php echo $repasUser2['repas_statut'] ?>"
             placeholder="Statut du repas" required />
-         <textarea name="messageDepot" form ="updateform"name=" messageDeclarerPanier" id="messageModify"
+         <textarea name="messageDepot" form ="updateform" name="messageModify"
                                 cols="30" rows="10"
-                                placeholder="<?php echo $repas['message_depot'] ?>"></textarea >
+                                placeholder="<?php echo $repasUser2['message_depot'] ?>"></textarea >
        
                     
         <button name="modifierRepas"id="buttonModifierPanier">Modifier</button>
