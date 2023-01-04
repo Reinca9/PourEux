@@ -11,7 +11,6 @@
                 $repasId = selectMaxRepasId($bdd);
                 insertNewRepas($bdd, $hDepot, $loggedInUserId, $repasStatut, $mDepot);
                 insertIntoRelationRepasUser($bdd,$loggedInUserId, $repasId);
-                
                 }else{
                     header('Location:index.php?page=login');
             }
@@ -29,7 +28,7 @@
         }else{
              header('Location:index.php?page=login');
         }
-}
+    }
         function updateRepas($bdd){
             if(isset($_SESSION['identifiant'])){
                 if(isset($_POST['modifierRepas'])){
