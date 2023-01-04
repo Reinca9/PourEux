@@ -8,15 +8,16 @@
     <title>Document</title>
 </head>
 <?php 
-include('header2.php');
+// include('header2.php');
 require_once('../model/paniersModel.php');
 require_once('../model/userModel.php');
 require_once('../controller/connexionController.php');
 require_once('../config/Database.php');
 require_once('../controller/panierController.php');
-
+$repasUser = getRepasById($bdd->connexion);  
 updateRepas($bdd->connexion);    
-$loggedInUserId = selectConnectedUser($bdd->connexion,$_SESSION['identifiant']);       
+bouttonInsererRepas($bdd->connexion);
+$loggedInUserId = selectConnectedUser($bdd->connexion,$_SESSION['identifiant']);   
  ?>
 
           
@@ -24,7 +25,7 @@ $loggedInUserId = selectConnectedUser($bdd->connexion,$_SESSION['identifiant']);
     <div>.</div>
     <div id="deposerPanierDiv">
         <h1 id="deposerPanierTitle">Déposer un repas</h1>
-        <div id=" myDatepicker" class="datepicker">
+        <div id="myDatepicker" class="datepicker">
             <div class="date">
                 <div class="group">
                     <form id="envoyerPanierForm" action="" method="POST">
@@ -39,7 +40,6 @@ $loggedInUserId = selectConnectedUser($bdd->connexion,$_SESSION['identifiant']);
                             <textarea name="messageDepot" form ="envoyerPanierForm"name=" messageDeclarerPanier" form="envoyerPanierForm" id="messageDeclarerPanier"
                                 cols="30" rows="10"
                                 placeholder="Description du repas, portions..."></textarea >
-                                 <?php bouttonInsererRepas($bdd->connexion) ?>
                             <button id="buttonDeclarerPanier" type="submit" name="panierSubmit">C'est parti!</button>
                            
                         </div>
@@ -53,10 +53,9 @@ $loggedInUserId = selectConnectedUser($bdd->connexion,$_SESSION['identifiant']);
     <div id="vosPanierRepasDiv">
         <h2>Vos paniers repas déclarés</h2>
         <div class="selectPanierGroup">
-            <?php  
-            
-            $repasUser = getRepasById($bdd->connexion, $loggedInUserId);   
+            <?php
             foreach($repasUser as $repasUser2){
+                
                   ?>
              <form id="updateform" method="POST" action="">
         <input class="updateinput" type="text" name="heureModify" placeholder="Heure dispo" value="<?php echo $repasUser2['hrdispo_repas'] ?>"

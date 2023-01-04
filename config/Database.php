@@ -26,7 +26,6 @@ class Database{
       $this->connexion = new PDO("mysql:host={$this->host};dbname={$this->dbname};charset={$this->char}", $this->user, $this->mdp);
     } catch(PDOException $e){
       echo 'Error '. $e->getMessage();
-      die();
     }
   }
 

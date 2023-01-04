@@ -1,7 +1,4 @@
 <?php 
-require_once('../config/Database.php');
-
-
 function connexion($bdd){
 if(isset($_POST['mail'])){  
 $username = strip_tags($_POST['mail']); 

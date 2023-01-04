@@ -1,31 +1,24 @@
 <?php
+include_once('../config/Database.php');
+include_once('userModel.php');
 
-function getRepas(PDO $bdd){
-    $str = 'SELECT * FROM repas' ;
-    $query = $bdd->query($str);
-    if($query->rowCount()>0){
-        return $query->fetchAll(PDO::FETCH_ASSOC);
-    }else{
-        throw new \Exception("Vous n'avez déclaré aucun repas");
-        
-    }
-}
 function displayRepasById(PDO $bdd){
     $repas = getRepasById($bdd);
     $loggedInUserId = selectConnectedUser($bdd, $_SESSION['identifiant']);
     
     }
 
-function getRepasById(PDO $bdd, $loggedInUserId){
+function getRepasById(PDO $bdd){
     if(isset($_SESSION['identifiant'])){
         $loggedInUserId = selectConnectedUser($bdd, $_SESSION['identifiant']);
         $str = "SELECT*FROM repas  WHERE id_user_cuisinier = '$loggedInUserId'";
         $repas = $bdd->query($str);
         $repasUser = $repas->fetchAll();
-        if($repas->rowCount()>0){
-            return $repasUser;
-        }
+        if(isset($repasUser)){
+             return $repasUser;
+            }
         }else{
+                
                 echo "<div>Vous n'avez déclaré aucuns repas</div>";
             }
         }
@@ -40,6 +33,7 @@ function insertNewRepas(PDO $bdd, $hDepot,$loggedInUserId,$repasStatut,$mDepot){
         $query->bindValue(':repas_statut', $repasStatut, PDO::PARAM_STR);
         $query->bindValue(':message_depot', $mDepot, PDO::PARAM_STR);
         $query->execute();
+        
         }
        
     
