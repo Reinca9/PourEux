@@ -1,5 +1,5 @@
  <?php  
- include_once('../config/Database.php');
+
  function bouttonInsererRepas(PDO $bdd){
         if(isset($_POST['panierSubmit'])){ 
             if(isset($_SESSION['identifiant'])) {            
@@ -16,10 +16,11 @@
             }
         }
     }
-        function deleteRepas($bdd, $loggedInUserId){
+        function deleteRepas($bdd){   
             if(isset($_SESSION['identifiant'])){
                 if(isset($_POST['supprimerRepas'])){
-                    $deleteQuery = "DELETE*FROM repas    WHERE id_user_cuisinier = '$loggedInUserId'";
+                    $idrepas = $_SESSION['repasId'];
+                    $deleteQuery = "DELETE FROM repas WHERE id_repas = $idrepas";
                     $query = $bdd->prepare($deleteQuery);
                     $query->execute();
                     echo'<p id="repasSuppr">Repas supprimé</p>';
@@ -29,16 +30,15 @@
              header('Location:index.php?page=login');
         }
     }
-        function updateRepas($bdd, $id){
+        function updateRepas($bdd){
             if(isset($_SESSION['identifiant'])){
                 if(isset($_POST['modifierRepas'])){
-                $repasUser = getRepasById($bdd->connexion);
-                $loggedInUserId = selectConnectedUser($bdd, $_SESSION['identifiant']);        
+                $idrepas = $_SESSION['repasId'];
                 $hDispo = $_POST['heureModify'];
                 $repasStatut = $_POST['repas_statut'];
                 $mDepot = $_POST['messageModify'];
                 $modifier = "UPDATE repas SET hrdispo_repas = :hrdispo_repas, repas_statut = :repas_statut, message_depot = :message_depot WHERE 
-                '$id' = 'id_repas'";
+                '$idrepas' = 'id_repas'";
                 $queryUpdate = $bdd->prepare($modifier);
                 $queryUpdate->bindValue(':hrdispo_repas', $hDispo, PDO::PARAM_STR);
                 $queryUpdate->bindValue(':repas_statut', $repasStatut, PDO::PARAM_STR);
@@ -49,4 +49,6 @@
                 header('Location:index.php?page=login');
             }
         }
+        
+  
             ?>

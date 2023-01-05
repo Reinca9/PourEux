@@ -8,13 +8,17 @@
     <title>Document</title>
 </head>
 <?php 
-// include('header2.php');
+    include('header2.php');
 require_once('../model/paniersModel.php');
 require_once('../model/userModel.php');
 require_once('../controller/connexionController.php');
 require_once('../config/Database.php');
 require_once('../controller/panierController.php');
+if(isset($_SESSION['identifiant'])){
 $loggedInUserId = selectConnectedUser($bdd->connexion,$_SESSION['identifiant']);   
+}else{
+    header('Location:index.php?page=login');
+  }
 $repasUser = getRepasById($bdd->connexion);  
 
 bouttonInsererRepas($bdd->connexion);
@@ -57,6 +61,8 @@ bouttonInsererRepas($bdd->connexion);
         <div class="selectPanierGroup">
             <?php
             foreach($repasUser as $repasUser2){
+                $_SESSION['repasId'] = $repasUser2['id_repas'];
+                var_dump($_SESSION['repasId']);
                   ?>
              <form id="updateform" method="POST" action="">
         <p></p>
@@ -69,10 +75,15 @@ bouttonInsererRepas($bdd->connexion);
                                 placeholder="<?php echo $repasUser2['message_depot'] ?>"></textarea >
        
           <?php 
-          updateRepas($bdd->connexion, $_GET['id']);  ?>            
-        <button name="modifierRepas"id="buttonModifierPanier"><a id="buttonModifierPanier2" href="update.php?id=<?php $repasUser2['id_repas'] ?>">Modifier</a></button>
-         <?php deleteRepas($bdd->connexion, $loggedInUserId); ?>
-        <button name="supprimerRepas" id="buttonSupprimerRepas"><a  id="buttonSupprimerRepas2" href="delete.php?id=<?php $repasUser2['id_repas'] ?>">Supprimer</a></button>
+          
+          updateRepas($bdd->connexion); 
+         ?>            
+        <button name="modifierRepas"id="buttonModifierPanier"><a id="buttonModifierPanier2" href="index.php?page=deposerPanier">Modifier</a></button>
+         <?php 
+         
+         deleteRepas($bdd->connexion); 
+         ?>
+        <button name="supprimerRepas" id="buttonSupprimerRepas"> <a id="buttonSupprimerRepas2" href="index.php?page=deposerPanier?id="<?=$repasUser2['id_repas'] ?>> Supprimer </a></button>
     </form>
   <?php 
 }
