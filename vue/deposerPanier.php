@@ -14,10 +14,12 @@ require_once('../model/userModel.php');
 require_once('../controller/connexionController.php');
 require_once('../config/Database.php');
 require_once('../controller/panierController.php');
-$repasUser = getRepasById($bdd->connexion);  
-updateRepas($bdd->connexion);    
-bouttonInsererRepas($bdd->connexion);
 $loggedInUserId = selectConnectedUser($bdd->connexion,$_SESSION['identifiant']);   
+$repasUser = getRepasById($bdd->connexion);  
+
+bouttonInsererRepas($bdd->connexion);
+
+
  ?>
 
           
@@ -55,9 +57,9 @@ $loggedInUserId = selectConnectedUser($bdd->connexion,$_SESSION['identifiant']);
         <div class="selectPanierGroup">
             <?php
             foreach($repasUser as $repasUser2){
-                
                   ?>
              <form id="updateform" method="POST" action="">
+        <p></p>
         <input class="updateinput" type="text" name="heureModify" placeholder="Heure dispo" value="<?php echo $repasUser2['hrdispo_repas'] ?>"
             required />
         <input class="updateinput" type="text" name="repas_statut" value="<?php echo $repasUser2['repas_statut'] ?>"
@@ -66,10 +68,11 @@ $loggedInUserId = selectConnectedUser($bdd->connexion,$_SESSION['identifiant']);
                                 cols="30" rows="10"
                                 placeholder="<?php echo $repasUser2['message_depot'] ?>"></textarea >
        
-                    
-        <button name="modifierRepas"id="buttonModifierPanier">Modifier</button>
+          <?php 
+          updateRepas($bdd->connexion, $_GET['id']);  ?>            
+        <button name="modifierRepas"id="buttonModifierPanier"><a id="buttonModifierPanier2" href="update.php?id=<?php $repasUser2['id_repas'] ?>">Modifier</a></button>
          <?php deleteRepas($bdd->connexion, $loggedInUserId); ?>
-        <button name="supprimerRepas" id="buttonSupprimerRepas">Supprimer</button>
+        <button name="supprimerRepas" id="buttonSupprimerRepas"><a  id="buttonSupprimerRepas2" href="delete.php?id=<?php $repasUser2['id_repas'] ?>">Supprimer</a></button>
     </form>
   <?php 
 }
