@@ -30,7 +30,7 @@
           
          
       </nav>
-           
+   <?php        showAdminPanel($bdd->connexion, $_SESSION); ?>
       <i  class="fa-solid fa-bars menuBurger"></i>
       
   </header>

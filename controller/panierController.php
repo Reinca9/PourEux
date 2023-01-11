@@ -10,7 +10,7 @@
                 $repasStatut = "disponible";
                 insertNewRepas($bdd, $hDepot, $loggedInUserId, $repasStatut, $mDepot);
                 $repasId = selectMaxRepasId($bdd);
-                insertIntoRelationRepasUser($bdd,$loggedInUserId);
+                insertIntoRelationRepasUser($bdd,$loggedInUserId, $repasId);
                 }else{
                     header('Location:index.php?page=login');
             }
@@ -45,6 +45,14 @@
                 $queryUpdate->bindValue(':message_depot', $mDepot, PDO::PARAM_STR);
                 $queryUpdate->execute();
                         }
+            }else{
+                header('Location:index.php?page=login');
+            }
+        }
+        function connectedOrRedirect(PDO $bdd){
+            if(isset($_SESSION['identifiant'])){
+            $loggedInUserId = selectConnectedUser($bdd,$_SESSION['identifiant']); 
+            return $loggedInUserId;  
             }else{
                 header('Location:index.php?page=login');
             }

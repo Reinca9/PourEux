@@ -69,7 +69,7 @@ function showAdminPanel(PDO $bdd, $username){
 }
 function hideSideBarWhenConnected1(){
   if(isset($_SESSION['identifiant'])){
-    echo '<div class="coEtDecoDiv">;
+    echo '<div class="coEtDecoDiv">
      <p id="Connecté">Vous êtes connecté</p>
     <a id="seDeco1" href="index.php?page=session">Se deconnecter</a>
     </div>';  

@@ -1,12 +1,10 @@
 <?php
 require_once('../controller/inscriptionController.php');
 require('header2.php');
-
-if(isset($_POST['nom'])){
-    inscription($bdd->connexion, $_POST);   
+inscription($bdd->connexion, $_POST);   
     
   
-}
+
 $url = "https://www.google.com/recaptcha/api/siteverify?secret=6LehoFMiAAAAAKxB97Wjry-mpDY3FFhmvAQ4FZr0}";
 if(function_exists('curl_version')){
     $curl = curl_init($url);
@@ -31,7 +29,7 @@ if(empty($response) || is_null($response)){
 ?>
 <script defer type="text/javascript" src="../public/assets/js/sameEmail.js"></script>
 <script defer type="text/javascript" src="../public/assets/js/ville.js"></script>
-<div>empty content</div>
+<div>.</div>
 <div id="pageInscription">
     <div id="backgroundInscription">
         <div class="inscriptionContainer">

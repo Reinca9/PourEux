@@ -18,10 +18,10 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="assets\img\PourEuxNancySVG.svg" alt="Second slide">
+                    <img class="d-block w-100" src="assets\img\received_527396665639558.jpeg" alt="Second slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="..." alt="Third slide">
+                    <img class="d-block w-100" src="assets\img\received_527396665639558.jpeg" alt="Third slide">
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -56,7 +56,7 @@
         </section>
         <section>
             <div>
-                <i class="fa-solid fa-heart"></i>
+                <i class="fa-solid fa-heart heartIcon"></i>
                 <h3>Je contribue</h3>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, quod.</p>
             </div>

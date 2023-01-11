@@ -9,7 +9,6 @@ require_once('../controller/function.php');
 
 
 function inscription($bdd, $array){
-    $ok =  false;
     if(isset($array['nom']) && isset($array['adresseVille'])){
         $mdp = strip_tags($array['mdp']);
         $nom = strip_tags($array['nom']);

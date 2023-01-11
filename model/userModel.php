@@ -34,14 +34,13 @@ function insertIntoUserRole($user, $bdd, $userId)
   $query->bindValue(':a', $userId['id_user_user_role'], PDO::PARAM_INT);
   $query->execute();
 }
-function insertIntoRelationRepasUser(PDO $bdd,$loggedInUserId){
-  
-  $repasId = selectMaxRepasId($bdd);
-  $str = 'INSERT INTO repas_user (id_repas_user, id_repas_repas) VALUES (:a, :b)';
-  $query = $bdd->prepare($str);
-  $query->bindValue(':a', $loggedInUserId, PDO::PARAM_INT);
-  $query->bindValue(':b', $repasId['id_repas_repas'], PDO::PARAM_INT);
-  $query->execute();
+function insertIntoRelationRepasUser(PDO $bdd, int $loggedInUserId, int $repasId)
+{
+    $str = 'INSERT INTO repas_user (id_repas_user, id_repas_repas) VALUES (:a, :b)';
+    $query = $bdd->prepare($str);
+    $query->bindValue(':a', $loggedInUserId, PDO::PARAM_INT);
+    $query->bindValue(':b', $repasId, PDO::PARAM_INT);
+    $query->execute();
 }
  function selectMaxRepasId( $bdd)
 {
