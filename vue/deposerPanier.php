@@ -58,19 +58,21 @@ bouttonInsererRepas($bdd->connexion);
             foreach($repasUser as $repasUser2){
                 $_SESSION['repasId'] = $repasUser2['id_repas'];
                   ?>
-            <form id="updateform" method="POST" action="">
-            <input id="updateHour"value="<?php echo $repasUser2['hrdispo_repas'] ?>"type="time"  name="heureDispo" min="11:00" max="21:00" required>
-            <input form="updateform" type="text" name="repas_statut" value="<?php echo $repasUser2['repas_statut'] ?>"
-            placeholder="Statut du repas" required />
-            <textarea  form ="updateform"name="messageModify" id="messageModify"
-                                cols="30" rows="10"
-                                placeholder="<?php echo $repasUser2['message_depot'] ?>"></textarea >          
-            <button name="modifierRepas"id="buttonModifierPanier">
-            <a name="modifierRepas"id="buttonModifierPanier"  href="index.php?page=updateRepas&amp;idRepas=<?= $repasUser2['id_repas'] ?>">Modifier</a></button>
-             <button name="supprimerRepas" id="buttonSupprimerRepas"> 
-            <a name="supprimerRepas" id="buttonSupprimerRepas2" href="index.php?page=deleteRepas&amp;idRepas=<?= $repasUser2['id_repas'] ?>"> Supprimer </a></button>
-    </form>
+                <form id="updateform" method="POST">
+                    <input form="updateform"id="updateHour"value="<?php echo $repasUser2['hrdispo_repas'] ?>"type="time"  name="heureModify" min="11:00" max="21:00" required>
+                    <input form="updateform" type="text" name="repas_statut" value="<?php echo $repasUser2['repas_statut'] ?>"
+                     readonly/>
+                    <textarea  form="updateform"name="messageModify" id="messageModify"
+                                        cols="30" rows="10"
+                                       ><?php echo $repasUser2['message_depot'] ?></textarea >          
+                    <button name="modifierRepas"id="buttonModifierPanier">
+                    <a name="modifierRepas"id="buttonModifierPanier"  href="index.php?page=updateRepas&amp;idRepas=<?= $repasUser2['id_repas'] ?>">Modifier</a></button>
+                    <button name="supprimerRepas" id="buttonSupprimerRepas"> 
+                    <a name="supprimerRepas" id="buttonSupprimerRepas2" href="index.php?page=deleteRepas&amp;idRepas=<?= $repasUser2['id_repas'] ?>"> Supprimer </a></button>
+                    
+            </form>
   <?php 
+
 }
  ?>
         </div>

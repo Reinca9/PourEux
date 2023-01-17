@@ -1,5 +1,8 @@
 <?php
 include_once('../controller/panierController.php');
-updateRepas($bdd->connexion);
+include_once('deposerPanier.php');
+$array = $_POST;
+updateRepas($bdd->connexion, $array);
+
 
 ?> 

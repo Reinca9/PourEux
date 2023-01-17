@@ -18,7 +18,7 @@
         }
     }
 function deleteRepas(PDO $bdd){          
-$idRepas = $_GET['idRepas'];
+    $idRepas = $_GET['idRepas'];
     $deleteQuery = "DELETE FROM repas WHERE id_repas = $idRepas";
     $query = $bdd->prepare($deleteQuery);
     $query->execute();
@@ -27,23 +27,17 @@ $idRepas = $_GET['idRepas'];
      }
 
 
-        function updateRepas($bdd){
-            if(isset($_SESSION['identifiant'])){
-                if(isset($_POST['modifierRepas'])){
+        function updateRepas($bdd, $array){
                 $idRepas = $_GET['idRepas'];
-                $hDispo = $_POST['heureModify'];
-                $repasStatut = $_POST['repas_statut'];
-                $mDepot = $_POST['messageModify'];
-                $modifier = "UPDATE repas SET hrdispo_repas = :hrdispo_repas, repas_statut = :repas_statut, message_depot = :message_depot WHERE 
-                $idRepas = 'id_repas'";
+                $modifier = "UPDATE repas SET hrdispo_repas = :hrdispo_repas, message_depot = :message_depot WHERE  id_repas = $idRepas";
                 $queryUpdate = $bdd->prepare($modifier);
-                $queryUpdate->bindValue(':hrdispo_repas', $hDispo, PDO::PARAM_STR);
-                $queryUpdate->bindValue(':repas_statut', $repasStatut, PDO::PARAM_STR);
-                $queryUpdate->bindValue(':message_depot', $mDepot, PDO::PARAM_STR);
+                $queryUpdate->bindValue(':hrdispo_repas', $array['heureModify'], PDO::PARAM_STR);
+                $queryUpdate->bindValue(':message_depot', $array['messageModify'], PDO::PARAM_STR);
                 $queryUpdate->execute();
+        
                 header('Location:index.php?page=deposerPanier');
+
                         }
-            }}
         function connectedOrRedirect(PDO $bdd){
             if(isset($_SESSION['identifiant'])){
             $loggedInUserId = selectConnectedUser($bdd,$_SESSION['identifiant']); 
