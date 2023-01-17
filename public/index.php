@@ -67,11 +67,11 @@ $bdd = new Database('poureuxbdd', 'root', '', 'localhost');
       } else {
         include('../vue/accueil.php');
       }
-
     ?>
     </main>
     <?php
  require('../vue\footer.php');
+
   ?>
 
 </body>

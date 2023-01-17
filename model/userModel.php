@@ -42,7 +42,7 @@ function insertIntoRelationRepasUser(PDO $bdd, int $loggedInUserId, int $repasId
     $query->bindValue(':b', $repasId, PDO::PARAM_INT);
     $query->execute();
 }
- function selectMaxRepasId( $bdd)
+ function selectMaxRepasId($bdd)
 {
   $queryRepas = 'SELECT MAX(id_repas) AS id_repas_repas FROM repas';
   $query = $bdd->prepare($queryRepas);

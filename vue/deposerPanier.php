@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <?php 
-include('header2.php');
+    // include('header2.php');
 require_once('../model/paniersModel.php');
 require_once('../model/userModel.php');
 require_once('../controller/connexionController.php');
@@ -19,7 +19,8 @@ $repasUser = getRepasById($bdd->connexion);
 connectedOrRedirect($bdd->connexion);
 bouttonInsererRepas($bdd->connexion);
 updateRepas($bdd->connexion); 
-deleteRepas($bdd->connexion); 
+deleteRepas($bdd->connexion);
+
  ?>
 
           
@@ -69,7 +70,9 @@ deleteRepas($bdd->connexion);
                                 cols="30" rows="10"
                                 placeholder="<?php echo $repasUser2['message_depot'] ?>"></textarea >          
         <button name="modifierRepas"id="buttonModifierPanier"><a id="buttonModifierPanier2" href="index.php?page=deposerPanier">Modifier</a></button>
-        <button name="supprimerRepas" id="buttonSupprimerRepas"> <a id="buttonSupprimerRepas2" href="index.php?page=deposerPanier?id="<?=$repasUser2['id_repas'] ?>> Supprimer </a></button>
+        <button name="supprimerRepas" id="buttonSupprimerRepas"> 
+            <a id="buttonSupprimerRepas2" href="index.php?page=deposerPanier&amp;idRepas=<?= $repasUser2['id_repas'] ?>"> Supprimer </a></button>
+        <button id="buttonModifierPanier" >Id = <?php echo $repasUser2['id_repas'] ?></button>
     </form>
   <?php 
 }

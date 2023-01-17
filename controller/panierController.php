@@ -10,26 +10,24 @@
                 $repasStatut = "disponible";
                 insertNewRepas($bdd, $hDepot, $loggedInUserId, $repasStatut, $mDepot);
                 $repasId = selectMaxRepasId($bdd);
-                insertIntoRelationRepasUser($bdd,$loggedInUserId, $repasId);
+                insertIntoRelationRepasUser($bdd,$loggedInUserId, $repasId['id_repas_repas']);
                 }else{
                     header('Location:index.php?page=login');
             }
         }
     }
-        function deleteRepas($bdd){   
-            if(isset($_SESSION['identifiant'])){
+        function deleteRepas($bdd){  
+    {           
                 if(isset($_POST['supprimerRepas'])){
-                    $idrepas = $_SESSION['repasId'];
-                    $deleteQuery = "DELETE FROM repas WHERE id_repas = $idrepas";
+                    $id = $_GET['idRepas'];
+                    $deleteQuery = "DELETE*FROM repas WHERE id_repas = $id";
                     $query = $bdd->prepare($deleteQuery);
                     $query->execute();
-                    echo'<p id="repasSuppr">Repas supprimé</p>';
+                    header('Location:index.php?page=deposerPanier');
                  }
 
-        }else{
-             header('Location:index.php?page=login');
-        }
-    }
+     
+    }}
         function updateRepas($bdd){
             if(isset($_SESSION['identifiant'])){
                 if(isset($_POST['modifierRepas'])){
