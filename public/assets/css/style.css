@@ -1324,3 +1324,6 @@ display: none;
     font-weight: bold;
     text-decoration: none;
 }
+#updateHour{
+    height:60px;
+}

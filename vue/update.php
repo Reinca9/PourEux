@@ -1,4 +1,5 @@
 <?php
 include_once('../controller/panierController.php');
-deleteRepas($bdd->connexion);
-?>
+updateRepas($bdd->connexion);
+
+?> 

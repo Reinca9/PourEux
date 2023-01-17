@@ -49,6 +49,9 @@ $bdd = new Database('poureuxbdd', 'root', '', 'localhost');
         case 'deposerPanier':
             include('../vue/deposerPanier.php');
             break;
+        case 'deleteRepas':
+            include('../vue/delete.php');
+            break;
         case 'contact':
             include('../vue/contact.php');
             break;
@@ -60,6 +63,9 @@ $bdd = new Database('poureuxbdd', 'root', '', 'localhost');
             break;
         case 'session':
             include('../vue/session.php');
+            break;
+        case 'updateRepas':
+            include('../vue/update.php');
             break;
         default:
             include('../vue/accueil.php');
