@@ -399,12 +399,16 @@ position: absolute;
 #connexionContainer{
 width: 80%;
 margin-left: 10%;
+margin-top: 35%;
 }
 #loginLogoSvg{
 display: none;
 }
 #formConnexionContainer{
-margin-left: 5%;
+margin-left: -10%;
+}
+#loginButton{
+    width: 85%;
 }
 .coEtDecoDiv2 {
 
@@ -561,6 +565,15 @@ flex-direction: column;
 .signInput{
 width: 100%;
 }
+#leCollectifArticleFlex{
+    width: 800px;
+}
+#leCollectifArticle h1{
+    margin-top: 60%;
+}
+#leCollectifArticle{
+   width: 100%;
+}
 #backgroundInscription {
 width: 80%;
 background-color: rgb(13, 129, 153);
@@ -569,7 +582,10 @@ margin-left: 10%;
 height: 500px;
 display: flex;
 flex-direction: column;
-margin-top: 20%;
+margin-top: 35%;
+}
+.imgNoResponsive{
+    display : none;
 }
 
 #loginLogoSvgInscription {
@@ -594,7 +610,7 @@ margin-top: 80%;
 display: none;
 }
 
-.TableauImgsFormat {
+.TableauImgsFormat{
 height: 100px;
 width: 150px;
 margin: 2% 2% 0% 2%;
@@ -622,7 +638,7 @@ margin-left: -22%;
 border-radius: 5px;
 }
 
-#fondCouleurArticle {
+#fondCouleurArticle {   
 background-color: rgb(251, 188, 88);
 display: flex;
 align-items: center;

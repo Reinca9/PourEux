@@ -17,17 +17,17 @@ include('header2.php')
                 m'inscris</a></button>
     </article>
     <article>
-        <img id="SecondArticleImg" src=".\assets\img\received_527396665639558.jpeg" alt="">
+        <img id="SecondArticleImg" class="imgNoResponsive"src=".\assets\img\received_527396665639558.jpeg" alt="">
     </article>
 </div>
 <div id="TableauImgs">
     <div class="divFlexTableauImgs">
-        <img class="TableauImgsFormat" src="./assets/img/chienPourEux.png" alt="">
+        <img class="TableauImgsFormat imgNoResponsive" src="./assets/img/chienPourEux.png" alt="">
         <img class="TableauImgsFormat" src=".\assets\img\Panier repas.jpg" alt="">
         <img class="TableauImgsFormat" src="./assets\img\280727706_1341566139673383_3589000400067496603_n.jpg" alt="">
     </div>
     <div class="divFlexTableauImgs">
-        <img class="TableauImgsFormat" src="./assets\img\cuisine.jpg" alt="">
+        <img class="TableauImgsFormat imgNoResponsive" src="./assets\img\cuisine.jpg" alt="">
         <img class="TableauImgsFormat" id="logoPEuxTableauImgs" src="./assets\img\PourEuxNancySVG.svg" alt="">
 
         <img class="TableauImgsFormat" src="./assets\img\IMG_20211212_130328.jpg" alt="">
@@ -36,7 +36,7 @@ include('header2.php')
         <div class="TableauImgsFormat logoTableauImgsFormat" id="marginBottomImgs"><i id="instalogo"
                 class="fa-brands fa-instagram" href="https://www.instagram.com/poureuxnancy/?hl=fr"></i>
         </div>
-        <img class="TableauImgsFormat" src="./assets\img\241716767_1477515579286161_2201602846919997002_n.jpg" alt="">
+        <img class="TableauImgsFormat imgNoResponsive" src="./assets\img\241716767_1477515579286161_2201602846919997002_n.jpg" alt="">
         <div class="TableauImgsFormat logoTableauImgsFormat"><i id="fblogo" class="fa-brands fa-facebook"
                 href="https://www.facebook.com/groups/832655407231327"></i></div>
     </div>
