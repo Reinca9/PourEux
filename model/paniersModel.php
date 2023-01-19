@@ -7,7 +7,19 @@ function displayRepasById(PDO $bdd){
     $loggedInUserId = selectConnectedUser($bdd, $_SESSION['identifiant']);
     
     }
-
+function getAllRepas(PDO $bdd){
+    
+        $str = "SELECT*FROM repas WHERE repas_statut = 'disponible'";
+        $repas = $bdd->query($str);
+        $repasDispo = $repas->fetchAll();
+        return $repasDispo;
+        if(isset($repasDispo)){
+            return $repasDispo;
+        }else{
+            echo"<div>Aucun repas dispo</div>";
+        }
+    
+}
 function getRepasById(PDO $bdd){
     if(isset($_SESSION['identifiant'])){
         $loggedInUserId = selectConnectedUser($bdd, $_SESSION['identifiant']);

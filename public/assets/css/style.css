@@ -1225,6 +1225,9 @@ color: white;
 }
 #listeBouclePaniers{
     color: white;
+    border: none;
+    border-radius:10px;
+    margin-top: 0%;
 
 }
 #flexDivLivraison{
@@ -1326,4 +1329,30 @@ display: none;
 }
 #updateHour{
     height:60px;
+}
+#infoRepasDispo{
+    border-radius: 3px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    
+}
+#listeLivraisonsDiv{
+background-color: rgb(13, 129, 153);
+    margin-left: 0%;
+    width: 100%;
+    border-radius: 10px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15%;
+    margin-top: 15%;
+}
+
+#ajouterRepasIcon{
+margin: 5%;
+}
+.spanBoucleRepas{
+    display: flex;
 }

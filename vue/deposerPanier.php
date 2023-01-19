@@ -8,7 +8,7 @@
     <title>Document</title>
 </head> 
 <?php 
-// include('header2.php');
+include('header2.php');
 require_once('../model/paniersModel.php');
 require_once('../model/userModel.php');
 require_once('../controller/connexionController.php');
@@ -63,8 +63,7 @@ bouttonInsererRepas($bdd->connexion);
                     <input form="updateform" type="text" name="repas_statut" value="<?php echo $repasUser2['repas_statut'] ?>"
                      readonly/>
                     <textarea  form="updateform"name="messageModify" id="messageModify"
-                                        cols="30" rows="10"
-                                       ><?php echo $repasUser2['message_depot'] ?></textarea >          
+                                        cols="30" rows="10"><?php echo $repasUser2['message_depot'] ?></textarea >          
                     <button name="modifierRepas"id="buttonModifierPanier">
                     <a name="modifierRepas"id="buttonModifierPanier"  href="index.php?page=updateRepas&amp;idRepas=<?= $repasUser2['id_repas'] ?>">Modifier</a></button>
                     <button name="supprimerRepas" id="buttonSupprimerRepas"> 
@@ -72,7 +71,6 @@ bouttonInsererRepas($bdd->connexion);
                     
             </form>
   <?php 
-
 }
  ?>
         </div>
