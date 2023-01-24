@@ -35,12 +35,12 @@ $repas =  getAllRepas($bdd->connexion);
                 </form>
             </div>
         </div>
-        <div id="listeLivraisonsDiv">
+        <!-- <div id="listeLivraisonsDiv">
             <div id="flexDivVosLivraisons">
                 <h2>Vos livraisons</h2>
                 <span>Vous livrez<i class=" fa-solid fa-trash"></i></span>
             </div>
-        </div>
+        </div> -->
     </section>
 </body>
 

@@ -69,7 +69,7 @@ bouttonInsererRepas($bdd->connexion);
                     <button name="supprimerRepas" id="buttonSupprimerRepas"> 
                     <a name="supprimerRepas" id="buttonSupprimerRepas2" href="index.php?page=deleteRepas&amp;idRepas=<?= $repasUser2['id_repas'] ?>"> Supprimer </a></button>
                     
-            </form>
+                 </form>
   <?php 
 }
  ?>
